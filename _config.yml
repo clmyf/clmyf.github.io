@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Liang Chen (陈亮) / Personal Homepage"
+title                    : "Liang Chen / Personal Homepage"
 title_separator          : "-"
 name                     : &name "Liang Chen (陈亮)"
 description              : &description "personal description"
@@ -22,7 +22,7 @@ repository               : "clmyf/clmyf.github.io/"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Liang Chen"
+  name             : "Liang Chen (陈亮)"
   pronouns         : # example: "she/her"  
   bio              : "Professor, PhD"
   location         : "Changzhou, P.R.China"
