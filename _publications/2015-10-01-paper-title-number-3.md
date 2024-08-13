@@ -3,8 +3,8 @@ title: "A modified Levenberg–Marquardt method for solving system of nonlinear 
 collection: publications
 category: manuscripts
 permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date:  30 November 2022
+# excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
+date:  11-30-2022
 # venue: 'Journal 1'
 # slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
 paperurl: 'https://doi.org/10.1007/s12190-022-01823-x'
