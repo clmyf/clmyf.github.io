@@ -1,14 +1,14 @@
 ---
-title: "Paper Title Number 3"
+title: "A modified Levenberg–Marquardt method for solving system of nonlinear equations"
 collection: publications
 category: manuscripts
 permalink: /publication/2015-10-01-paper-title-number-3
 excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
+date:  30 November 2022
 venue: 'Journal 1'
 slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+paperurl: 'https://doi.org/10.1007/s12190-022-01823-x'
+citation: 'Chen, L., Ma, Y. A modified Levenberg–Marquardt method for solving system of nonlinear equations. J. Appl. Math. Comput. 69, 2019–2040 (2023). DOI: 10.1007/s12190-022-01823-x'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+A modified Levenberg–Marquardt methods for solving system of nonlinear equations is described and analysed in this paper. Specifically, we propose a convex combination of $\|F_k\|^{\delta}$ and $\|J_k^{\mathrm{T}} F_k\|^{\delta}$ with $\delta\in[1,2]$ for the LM parameter and analyse the convergence of this modified Levenberg–Marquardt method under the H\"olderian local error bound of the underlying function and the v-Hölderian continuity of its Jacobian. The results show that, under some suitable relationships of exponents $v$, $\gamma$ and $\delta$, the modified Levenberg–Marquardt method converges to the solution set of the system of nonlinear equations at least superlinearly. Numerical experiments show the new algorithm is efficient.
