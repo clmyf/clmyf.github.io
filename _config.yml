@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Liang Chen's Personal Homepage"
+title                    : "Liang Chen (陈亮)"
 title_separator          : "-"
 name                     : &name "Liang Chen (陈亮)"
 description              : &description "personal description"
