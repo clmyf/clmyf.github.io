@@ -10,8 +10,7 @@ permalink: /teaching/2014-spring-teaching-1
 
 This is a description of a teaching experience. You can use markdown like any other post.
 
-## Heading 1
-======
+# Heading 1
 数学分析III，是数学分析I、数学分析II的后继课程。
 
 Heading 2
