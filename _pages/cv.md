@@ -12,8 +12,11 @@ redirect_from:
 Education
 ======
 * Ph.D in College of Science, Shanghai University, 2013
+  上海大学 理学院，博士，2013
 * M.S. in College of Science, Shanghai University, 2008
+  上海大学 理学院，硕士，2008
 * B.S. in School of Mathematics, Huaibei Normal University, 2001
+  淮北师范大学 数学与统计学院，学士，2001
 
 Work experience
 ======
