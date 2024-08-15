@@ -1,6 +1,6 @@
 ---
 permalink: /markdown/
-title: "Markdown"
+title: "Guide / 网络资源"
 author_profile: true
 redirect_from: 
   - /md/
