@@ -7,12 +7,14 @@ redirect_from:
   - /markdown.html
 ---
 
-## Locations of key files/directories
+## AIGC 
 
-* Basic config options: _config.yml
-* Top navigation bar config: _data/navigation.yml
-* Single pages: _pages/
-* Collections of pages are .md or .html files in:
+* [生成式人工智能（AIGC）之最全详解图解](https://blog.csdn.net/DFCED/article/details/136107612)
+* [AI-Generated Content (AIGC): A Survey](https://arxiv.org/pdf/2304.06632)
+* [A Complete Survey on Generative AI (AIGC): Is ChatGPT from GPT-4 to GPT-5 All You Need?](https://ar5iv.labs.arxiv.org/html/2303.11717)
+* [一次性搞懂什么是AIGC！（一篇文章22个基本概念）](https://blog.csdn.net/weixin_55154866/article/details/139952393)
+* [人工智能生成内容(AIGC)](https://baike.baidu.com/item/AIGC/59988381)
+* [AIGC 是什麼？生成式 AI 懶人包：3 分鐘掌握原理、應用及趨勢](https://www.pcschool.com.tw/blog/designer/what-is-aigc)
   * _publications/
   * _portfolio/
   * _posts/
