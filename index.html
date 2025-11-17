@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>姓名 · 研究人员主页</title>
+  <meta name="description" content="学术研究者个人主页模板：简介、研究方向、代表论文、项目、教学与联系方式。" />
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#0ea5e9;
+      --sidebar-w:260px;
+      --radius:12px;
+      --maxw:1100px;
+      color-scheme: light;
+      font-family: "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f4f6fb 0%, #eef2f7 60%);color:#0f1724;-webkit-font-smoothing:antialiased}
+    /* Layout */
+    .toggle-btn{
+      display:none;
+      position:fixed;
+      left:14px;top:14px;z-index:60;
+      background:var(--accent);border:none;color:#fff;padding:10px;border-radius:10px;cursor:pointer;
+      box-shadow:0 8px 20px rgba(14,165,233,0.12);
+    }
+    .overlay{display:none}
+    .sidebar{
+      position:fixed;
+      left:20px;
+      top:20px;
+      bottom:20px;
+      width:var(--sidebar-w);
+      background:var(--card);
+      border-radius:14px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      box-shadow:0 10px 30px rgba(12,18,30,0.06);
+      z-index:50;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .photo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px}
+    .name{font-weight:800}
+    .affil{color:var(--muted);font-size:13px}
+    nav{margin-top:8px;display:flex;flex-direction:column;gap:6px;overflow:auto;padding-right:6px}
+    nav a{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;color:#1f2937;text-decoration:none;font-weight:700;font-size:14px}
+    nav a:hover{color:var(--accent);background:rgba(14,165,233,0.06)}
+    nav a.active{color:#fff;background:linear-gradient(90deg,var(--accent),#7c3aed)}
+    .meta{margin-top:auto;color:var(--muted);font-size:13px}
+    .meta a{color:var(--accent);text-decoration:none;font-weight:700}
+    .content{
+      margin-left: calc(var(--sidebar-w) + 60px);
+      padding:28px;
+      max-width:var(--maxw);
+    }
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(12,18,30,0.04);margin-bottom:18px}
+    h1,h2{margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 12px;line-height:1.6}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:rgba(14,165,233,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+    .pub-list{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+    .pub{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(14,165,233,0.02), rgba(0,0,0,0.00));}
+    .pub .title{font-weight:700}
+    .meta-row{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-top:6px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{padding:12px;border-radius:8px;background:rgba(14,165,233,0.03)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    a.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#04263a;text-decoration:none;font-weight:700}
+    footer{text-align:center;color:var(--muted);margin-top:30px;padding-bottom:40px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .sidebar{transform:translateX(-110%);left:12px;top:12px;bottom:12px}
+      .toggle-btn{display:block}
+      .overlay{display:block;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:45;opacity:0;pointer-events:none;transition:opacity .18s}
+      .overlay.show{opacity:1;pointer-events:auto}
+      .content{margin-left:0;padding:18px}
+      .sidebar.open{transform:translateX(0);transition:transform .25s}
+    }
+    @media (max-width:720px){ .projects{grid-template-columns:1fr} .contact-grid{grid-template-columns:1fr} .photo{width:56px;height:56px}}
+    small.muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" id="openSidebar" aria-label="打开导航">☰ 导航</button>
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar" aria-labelledby="siteTitle">
+    <div class="brand">
+      <div class="photo" aria-hidden="true">姓</div>
+      <div>
+        <div id="siteTitle" class="name">姓名（中文 / 英文名）</div>
+        <div class="affil">单位 / 实验室 · 职称</div>
+      </div>
+    </div>
+
+    <nav role="navigation" aria-label="主导航" id="mainNav">
+      <a href="#home" data-target="home" class="active">简介</a>
+      <a href="#research" data-target="research">研究方向</a>
+      <a href="#publications" data-target="publications">代表论文</a>
+      <a href="#projects" data-target="projects">科研项目</a>
+      <a href="#teaching" data-target="teaching">教学与指导</a>
+      <a href="#cv" data-target="cv">简历 / 下载</a>
+      <a href="#contact" data-target="contact">联系</a>
+    </nav>
+
+    <div class="meta">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="muted">your.email@example.com</div>
+        <a class="btn" href="#" id="downloadCv">下载 CV</a>
+      </div>
+      <div style="margin-top:12px;font-size:13px;color:var(--muted)">
+        ORCID: <a href="#" id="orcidLink">0000-0000-0000-0000</a><br>
+        Google Scholar: <a href="#" id="gsLink">个人主页</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content" id="mainContent">
+    <section id="home" class="card" aria-labelledby="homeTitle">
+      <h1 id="homeTitle">你好，我是 姓名</h1>
+      <p class="lead">职称 · 单位。我的研究集中在 [研究方向关键词]，特别关注 [具体问题或方法]。欢迎关注我的研究、阅读论文或联系我探讨合作。</p>
+      <div style="display:flex;gap:10px;margin-top:12px">
+        <a class="btn" href="#publications">代表论文</a>
+        <a class="btn" href="#projects">科研项目</a>
+      </div>
+      <div style="margin-top:14px" class="badges" aria-hidden="true">
+        <span class="badge">机器学习</span>
+        <span class="badge">计算神经科学</span>
+        <span class="badge">数据科学</span>
+        <span class="badge">统计学</span>
+      </div>
+    </section>
+
+    <section id="research" class="card" aria-labelledby="researchTitle">
+      <h2 id="researchTitle">研究方向</h2>
+      <p class="muted" style="margin-top:8px">在此简洁描述你的主要研究方向（2–4 行），例如研究目标、采用的方法、以及期望解决的科学问题。</p>
+
+      <h3 style="margin-top:12px">当前课题</h3>
+      <ul style="margin-top:8px;color:var(--muted)">
+        <li>课题一：简短描述（方法 / 目标 / 现状）</li>
+        <li>课题二：简短描述（方法 / 目标 / 现状）</li>
+      </ul>
+    </section>
+
+    <section id="publications" class="card" aria-labelledby="pubTitle">
+      <h2 id="pubTitle">代表论文</h2>
+      <p class="muted" style="margin-top:6px">以下为部分代表性论文，完整列表请查看 Google Scholar 或 CV。</p>
+
+      <div class="pub-list" id="pubList">
+        <div class="pub">
+          <div class="title">1. 姓名, 合作者. 论文标题：副标题（期刊/会议，年份）</div>
+          <div class="meta-row">
+            <div>Journal / Conference • 2024</div>
+            <div><a href="#" class="muted">DOI/链接</a></div>
+            <div><a href="#" class="muted">BibTeX</a></div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="title">2. 姓名, 合作者. 另一篇论文标题（期刊/会议，年份）</div>
+          <div class="meta-row">
+            <div>Conference • 2022</div>
+            <div><a href="#" class="muted">DOI/链接</a></div>
+            <div><a href="#" class="muted">BibTeX</a></div>
+          </div>
+        </div>
+
+        <!-- 可按需复制更多条目 -->
+      </div>
+
+      <div style="margin-top:12px">
+        <a href="#" class="muted">完整论文列表（Google Scholar / ORCID / 研究主页）</a>
+      </div>
+    </section>
+
+    <section id="projects" class="card" aria-labelledby="projTitle">
+      <h2 id="projTitle">科研项目</h2>
+      <div style="margin-top:8px;color:var(--muted)">概述你主持或参与的主要科研项目（经费来源、时间、你的角色）。</div>
+
+      <div class="projects" style="margin-top:12px">
+        <div class="project">
+          <strong>项目 A（国家/机构）</strong>
+          <div class="muted" style="margin-top:6px">时间 · 角色：项目负责人 / 参与者。简述目标与成果。</div>
+        </div>
+        <div class="project">
+          <strong>项目 B（校内/产学研）</strong>
+          <div class="muted" style="margin-top:6px">时间 · 角色：简述目标与成果。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="card" aria-labelledby="teachTitle">
+      <h2 id="teachTitle">教学与学生指导</h2>
+      <div class="muted" style="margin-top:8px">
+        近年授课：课程名（本科/研究生） · 学期<br>
+        指导学生：博士生（姓名，起止年），硕士生（姓名，起止年）
+      </div>
+      <div style="margin-top:12px">
+        <strong>开设课程（示例）</strong>
+        <ul class="muted" style="margin-top:8px">
+          <li>高级机器学习 · 研究生课程 · 课程简介/链接</li>
+          <li>数据科学导论 · 本科课程 · 课程简介/链接</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cv" class="card" aria-labelledby="cvTitle">
+      <h2 id="cvTitle">简历 & 资料</h2>
+      <p class="muted" style="margin-top:8px">下载最新 CV、获取完整论文列表或数据/代码仓库链接。</p>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <a class="btn" href="#" id="cvDownloadBtn">下载 PDF 简历</a>
+        <a class="btn" href="#" id="dataRepo">代码 / 数据仓库</a>
+      </div>
+    </section>
+
+    <section id="contact" class="card" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">联系</h2>
+      <p class="muted" style="margin-top:8px">欢迎通过邮件联系（请在标题中写明来意），或使用下面的社交学术链接。</p>
+
+      <div style="margin-top:12px" class="contact-grid">
+        <form onsubmit="event.preventDefault(); sendMail()" style="display:grid;gap:8px">
+          <input id="name" type="text" placeholder="你的姓名" required />
+          <input id="email" type="email" placeholder="你的邮箱" required />
+          <textarea id="message" rows="4" placeholder="写点什么..." required></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn" type="submit">发送邮件</button>
+            <a class="btn" href="mailto:your.email@example.com">发邮件</a>
+          </div>
+        </form>
+
+        <div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div><strong>Email</strong><div class="muted" style="margin-top:6px">your.email@example.com</div></div>
+            <div><strong>办公室</strong><div class="muted" style="margin-top:6px">建筑 / 房间号 · 单位地址</div></div>
+            <div style="margin-top:6px">
+              <strong>学术链接</strong>
+              <div class="muted" style="margin-top:6px">
+                <a href="#" id="scholarLink">Google Scholar</a> · <a href="#" id="orcidLink2">ORCID</a> · <a href="#" id="githubLink">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> 姓名 · 单位 · 研究者主页
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      // 自动年份
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // 响应式侧边栏打开/关闭
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const openBtn = document.getElementById('openSidebar');
+
+      function openSidebar(){
+        sidebar.classList.add('open');
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden','false');
+      }
+      function closeSidebar(){
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden','true');
+      }
+      openBtn.addEventListener('click', openSidebar);
+      overlay.addEventListener('click', closeSidebar);
+
+      // 平滑滚动并在小屏幕收起侧边栏
+      document.querySelectorAll('#mainNav a').forEach(a => {
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          document.querySelectorAll('#mainNav a').forEach(x=>x.classList.remove('active'));
+          this.classList.add('active');
+          const target = document.getElementById(this.dataset.target);
+          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+          if(window.innerWidth <= 980) closeSidebar();
+        });
+      });
+
+      // 高亮当前章节（IntersectionObserver）
+      const navLinks = Array.from(document.querySelectorAll('#mainNav a'));
+      const sections = navLinks.map(l => document.getElementById(l.dataset.target)).filter(Boolean);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            const id = entry.target.id;
+            navLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
+          }
+        });
+      }, {root: null, rootMargin: '0px 0px -40% 0px', threshold: 0});
+      sections.forEach(s => observer.observe(s));
+
+      // 简易 mailto 表单
+      window.sendMail = function(){
+        const name = encodeURIComponent(document.getElementById('name').value.trim());
+        const email = encodeURIComponent(document.getElementById('email').value.trim());
+        const message = encodeURIComponent(document.getElementById('message').value.trim());
+        const subject = encodeURIComponent('网站联系 — ' + (name || '访客'));
+        const body = encodeURIComponent('姓名: ' + name + '\\n邮箱: ' + email + '\\n\\n' + message);
+        location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
+      }
+
+      // 占位下载行为（替换为实际链接）
+      document.getElementById('downloadCv').addEventListener('click', function(e){
+        e.preventDefault();
+        window.open('#', '_blank');
+      });
+      document.getElementById('cvDownloadBtn').addEventListener('click', function(e){
+        e.preventDefault();
+        window.open('#', '_blank');
+      });
+
+      // 可按需：用 JS 动态加载更多论文或从 JSON/API 拉取数据
+    })();
+  </script>
+</body>
+</html>
