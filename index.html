@@ -44,7 +44,7 @@
       z-index:50;
     }
     .brand{display:flex;gap:12px;align-items:center}
-    .photo{width:90px;height:100px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px}
+    .photo{width:80px;height:100px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px}
     .name{font-weight:800}
     .affil{color:var(--muted);font-size:13px}
     nav{margin-top:8px;display:flex;flex-direction:column;gap:6px;overflow:auto;padding-right:6px}
@@ -113,25 +113,29 @@
 
     <div class="meta">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div class="muted"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a></div><!--
+        <div class="muted"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a></div>
+<!--
         <div class="muted">chenliang1977@gmail.com</div><br>
-        <a class="btn" href="#" id="downloadCv">下载 CV</a>-->
+        <a class="btn" href="#" id="downloadCv">下载 CV</a>
+-->
       </div>
       <div style="margin-top:12px;font-size:13px;color:var(--muted)">
         ORCID: <a href="https://orcid.org/0000-0002-3788-6904" id="orcidLink">0000-0002-3788-6904</a><br>
-     <!--   Google Scholar: <a href="#" id="gsLink">个人主页</a>  -->
+<!--   Google Scholar: <a href="#" id="gsLink">个人主页</a>  -->
       </div>
     </div>
   </aside>
 
   <main class="content" id="mainContent">
     <section id="home" class="card" aria-labelledby="homeTitle">
-      <h1 id="homeTitle">你好，我是 姓名</h1>
-      <p class="lead">职称 · 单位。我的研究集中在 [研究方向关键词]，特别关注 [具体问题或方法]。欢迎关注我的研究、阅读论文或联系我探讨合作。</p>
+      <h1 id="homeTitle">Liang Chen / 陈亮</h1>
+      <p class="lead">教授 · 硕导。我的研究集中在 1. 数值优化; 2. 数值代数，特别关注机器学习中的最优化算法。欢迎关注我的研究、阅读论文或联系我探讨合作。</p>
+<!--
       <div style="display:flex;gap:10px;margin-top:12px">
         <a class="btn" href="#publications">代表论文</a>
         <a class="btn" href="#projects">科研项目</a>
       </div>
+-->
       <div style="margin-top:14px" class="badges" aria-hidden="true">
         <span class="badge">机器学习</span>
         <span class="badge">计算神经科学</span>
@@ -142,13 +146,14 @@
 
     <section id="research" class="card" aria-labelledby="researchTitle">
       <h2 id="researchTitle">研究方向</h2>
-      <p class="muted" style="margin-top:8px">在此简洁描述你的主要研究方向（2–4 行），例如研究目标、采用的方法、以及期望解决的科学问题。</p>
-
+      <p class="muted" style="margin-top:8px">非线性问题的数值解法与优化算法的设计与分析，主要关注如何高效、稳定地求解非线性问题以及相关的优化问题。</p>
+<!--
       <h3 style="margin-top:12px">当前课题</h3>
       <ul style="margin-top:8px;color:var(--muted)">
         <li>课题一：简短描述（方法 / 目标 / 现状）</li>
         <li>课题二：简短描述（方法 / 目标 / 现状）</li>
       </ul>
+-->
     </section>
 
     <section id="publications" class="card" aria-labelledby="pubTitle">
