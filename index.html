@@ -67,7 +67,7 @@
     .pub{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(14,165,233,0.02), rgba(0,0,0,0.00));}
     .pub .title{font-weight:700}
     .meta-row{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-top:6px}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .projects{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
     .project{padding:12px;border-radius:8px;background:rgba(14,165,233,0.03)}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     a.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#04263a;text-decoration:none;font-weight:700}
@@ -104,11 +104,12 @@
     <nav role="navigation" aria-label="主导航" id="mainNav">
       <a href="#home" data-target="home" class="active">简介</a>
       <a href="#research" data-target="research">研究方向</a>
-      <a href="#publications" data-target="publications">代表论文</a>
       <a href="#projects" data-target="projects">科研项目</a>
+      <a href="#publications" data-target="publications">科研论文</a>
+      <a href="#teachingproject" data-target="teachingproject">教研项目</a>
       <a href="#teaching" data-target="teaching">教学与指导</a>
       <a href="#cv" data-target="cv">简历 / 下载</a>
-      <a href="#contact" data-target="contact">联系</a>
+      <a href="#contact" data-target="contact">联系我</a>
     </nav>
 
     <div class="meta">
@@ -156,18 +157,62 @@
 -->
     </section>
 
+
+    <section id="projects" class="card" aria-labelledby="projTitle">
+      <h2 id="projTitle">科研项目</h2>
+      <div style="margin-top:8px;color:var(--muted)">主持省部级项目 1 项，厅级项目 4 项，参与各级各类科研项目若干。</div>
+
+      <div class="projects" style="margin-top:12px">
+        <div class="project">
+          <strong>基于大数据的企业综合管理软件开发（横向课题）</strong>
+          <div class="muted" style="margin-top:6px">南京晴栩科技有限公司，2025.4-2026.4，15万元。</div>
+        </div>
+
+        <div class="project">
+          <strong>高校优秀青年骨干人才国外访学研修项目（No. GXGWFX2019022）</strong>
+          <div class="muted" style="margin-top:6px">安徽省教育厅，2020.01-2021.12，15万元。</div>
+        </div>
+
+        <div class="project">
+          <strong>基于信赖域的非线性方程组和无约束优化问题的数值算法（No. KJ2017A375）</strong>
+          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2017.01-2018.12，6万元。</div>
+        </div>
+
+        <div class="project">
+          <strong>大规模非线性方程组的迭代解（No. 1508085MA14）</strong>
+          <div class="muted" style="margin-top:6px">安徽省自然科学基金委员会，安徽省自然科学基金（面上）项目，2015.07-2017.06，8万元。</div>
+        </div>
+
+        <div class="project">
+          <strong>大规模非线性方程组和无约束优化问题的数值解（No. KJ2014A223）</strong>
+          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2014.01-2015.12，6万元。</div>
+        </div>
+
+        <div class="project">
+          <strong>非线性方程组的数值解及其理论分析（No. KJ2012Z347）</strong>
+          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究项目，2012.01-2013.12。</div>
+        </div>
+
+        <div class="project">
+          <strong>Banach空间中非线性方程组的数值解</strong>
+          <div class="muted" style="margin-top:6px">淮北师范大学，科学研究青年项目，2012.01-2013.12，0.6万元。</div>
+        </div>
+      </div>
+    </section>
+
+
     <section id="publications" class="card" aria-labelledby="pubTitle">
-      <h2 id="pubTitle">代表论文</h2>
+      <h2 id="pubTitle">科研论文</h2>
 <!--      <p class="muted" style="margin-top:6px">以下为部分代表性论文，完整列表请查看 Google Scholar 或 CV。</p>  -->
 
       <div class="pub-list" id="pubList">
         <ol>
          <li><div class="pub">
-          <div>Yuan JIN, Guangyun XU, <strong>Liang CHEN</strong> (#).</div>
+          <div>Yuan JIN, Guangyun XU, <strong>Liang CHEN</strong>(#).</div>
           <div class="title">A New Hestenes–Stiefel-Type Conjugate Gradient Method for Large-Scale Unconstrained Optimization Problems</div>
           <div class="meta-row">
-            <div>International Journal of Applied and Computational Mathematics. <strong>2025</strong>, Vol. 11, No. 5, p. 1-11</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s40819-025-02036-z" class="muted">10.1007/s40819-025-02036-z</a></div>
+            <div>International Journal of Applied and Computational Mathematics. <strong>2025</strong>, Vol. 11, No. 5, article number 218</div>
+            <div>DOI: <a href="https://doi.org/10.1007/s40819-025-02036-z" class="muted" target="_blank">10.1007/s40819-025-02036-z</a></div>
 <!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
           </div>
         </div>
@@ -177,7 +222,7 @@
           <div class="title">A modified Levenberg–Marquardt method for solving systems of nonlinear equations.</div>
           <div class="meta-row">
             <div>Journal of Applied Mathematics and Computing. <strong>2023</strong>, Vol. 69, No. 2, p. 2019-2040</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s12190-022-01823-x" class="muted">10.1007/s12190-022-01823-x</a></div>
+            <div>DOI: <a href="https://doi.org/10.1007/s12190-022-01823-x" class="muted" target="_blank">10.1007/s12190-022-01823-x</a></div>
 <!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
           </div>
         </div>
@@ -187,7 +232,48 @@
           <div class="title">A New Modified Levenberg-Marquardt Method for Systems of Nonlinear Equations</div>
           <div class="meta-row">
             <div>Journal of Mathematics. <strong>2023</strong>, Vol. 2023, p. 6043780</div>
-            <div>DOI: <a href="https://doi.org/10.1155/2023/6043780" class="muted">10.1155/2023/6043780</a></div>
+            <div>DOI: <a href="https://doi.org/10.1155/2023/6043780" class="muted" target="_blank">10.1155/2023/6043780</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>Lin ZHENG, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
+          <div class="title">A variant of the Levenberg-Marquardt method with adaptive parameters for systems of nonlinear equations.</div>
+          <div class="meta-row">
+            <div>AIMS Mathematic. <strong>2022</strong>, Vol. 7, No. 1 p. 1241-1256</div>
+            <div>DOI: <a href="https://doi.org/10.3934/math.2022073" class="muted" target="_blank">10.3934/math.2022073</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+
+        <li><div class="pub">
+          <div>Lin ZHENG, <strong>Liang CHEN</strong>, Yangxin TANG. </div>
+          <div class="title">Convergence rate of the modified Levenberg-Marquardt method under Hölderian local error bound.</div>
+          <div class="meta-row">
+            <div>Open Mathematics. <strong>2022</strong>, Vol. 20, No. 1 p. 998-1012</div>
+            <div>DOI: <a href="https://doi.org/10.1515/math-2022-0485" class="muted" target="_blank">10.1515/math-2022-0485</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>Zhenxiang WU, Tong ZHOU, Lei LI, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
+          <div class="title">A New Modified Efficient Levenberg–Marquardt Method for Solving Systems of Nonlinear Equations.</div>
+          <div class="meta-row">
+            <div>Mathematical Problems in Engineering. <strong>2021</strong>, Vol. 2021 p. Article ID 5608195, 11 pages</div>
+            <div>DOI: <a href="https://doi.org/10.1155/2021/5608195" class="muted" target="_blank">10.1155/2021/5608195</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>周童，<strong>陈亮</strong>(#)，伍珍香. </div>
+          <div class="title">一种求解非线性方程组的Levenberg-Marquardt方法及其收敛性.</div>
+          <div class="meta-row">
+            <div>淮北师范大学学报(自然科学版). <strong>2021</strong>,  Vol. 42, No. 01 p. 1-7</div>
+            <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
 <!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
           </div>
         </div>
@@ -197,8 +283,8 @@
           <div class="title">An efficient m-step Levenberg-Marquardt method for systems of nonlinear equations</div>
           <div class="meta-row">
             <div>Journal of Computational Analysis and Applications. <strong>2020</strong>, Vol. 28, No. 3, p. 543-559</div>
-<!--            <div>DOI: <a href="https://doi.org/10.1155/2023/6043780" class="muted">10.1155/2023/6043780</a></div>
-          <div><a href="#" class="muted">BibTeX</a></div>  -->
+          <div><a href="https://www.eudoxuspress.com/index.php/pub/issue/view/18/17" class="muted" target="_blank">URL</a></div>
+<!--               <div><a href="#" class="muted">BibTeX</a></div>  -->
           </div>
         </div>
           
@@ -206,36 +292,210 @@
           <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
           <div class="title">Shamanskii-like Levenberg-Marquardt method with a new line search for systems of nonlinear equations.</div>
           <div class="meta-row">
-            <div>Journal of Systems Science and Complexity. 2020, Vol. 33, No. 5, p. 1694-1707</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s11424-020-9043-x" class="muted">10.1007/s11424-020-9043-x</a></div>
+            <div>Journal of Systems Science and Complexity. <strong>2020</strong>, Vol. 33, No. 5, p. 1694-1707</div>
+            <div>DOI: <a href="https://doi.org/10.1007/s11424-020-9043-x" class="muted" target="_blank">10.1007/s11424-020-9043-x</a></div>
 <!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
           </div>
         </div>
+
+        <li><div class="pub">
+          <div>伍珍香，<strong>陈亮</strong>(#)， 周童. </div>
+          <div class="title">一种改进的求解非线性方程组的Levenberg-Marquardt方法.</div>
+          <div class="meta-row">
+            <div>延边大学学报(自然科学版). <strong>2020</strong>, Vol. 46, No. 04 p. 302-307+332</div>
+            <div>DOI: <a href="https://doi.org/10.16379/j.cnki.issn.1004-4353.2020.04.004" class="muted" target="_blank">10.16379/j.cnki.issn.1004-4353.2020.04.004</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Chen, Liang</strong>, Cuizhen DU, Yanfang MA. </div>
+          <div class="title">The higher-order Levenberg-Marquardt method with Armijo type line search for nonlinear equations.</div>
+          <div class="meta-row">
+            <div>Optimization Methods and Software. <strong>2017</strong>, Vol. 32, No. 3 p. 516-533</div>
+            <div>DOI: <a href="https://doi.org/10.1080/10556788.2016.1225214" class="muted" target="_blank">10.1080/10556788.2016.1225214</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>苏晨诚，<strong>陈亮</strong>(#). </div>
+          <div class="title">求解非线性方程组的加速多步Levenberg-Marquardt算法.</div>
+          <div class="meta-row">
+            <div>淮北师范大学学报(自然科学版). <strong>2017</strong>,  Vol. 38, No. 1 p. 24-30</div>
+            <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>. </div>
+          <div class="title">A high-order modified Levenberg-Marquardt method for systems of nonlinear equations with fourth-order convergence.</div>
+          <div class="meta-row">
+            <div>Applied Mathematics and Computation. <strong>2016</strong>,  Vol. 285 p. 79-93</div>
+            <div>DOI: <a href="https://doi.org/10.1016/j.amc.2016.03.031" class="muted" target="_blank">10.1016/j.amc.2016.03.031</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>. </div>
+          <div class="title">A modified Levenberg-Marquardt method with line search for nonlinear equations.</div>
+          <div class="meta-row">
+            <div>Computational Optimization and Applications. <strong>2016</strong>,  Vol. 65, No. 3 p. 753-779</div>
+            <div>DOI: <a href="https://doi.org/10.1007/s10589-016-9852-y" class="muted" target="_blank">10.1007/s10589-016-9852-y</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Yanfang MA, Chencheng SU. </div>
+          <div class="title">An efficient m-step Levenberg-Marquardt method for nonlinear equations.</div>
+          <div class="meta-row">
+            <div>ChinaXiv. <strong>2016</strong>, </div>
+            <div>ChinaXiv: <a href="https://www.chinaxiv.org/abs/201607.00035" class="muted" target="_blank">201607.00035</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>Lin ZHENG, Ke ZHANG, <strong>Liang CHEN</strong>. </div>
+          <div class="title">On the convergence of a modified Chebyshev-like's method for solving nonlinear equations.</div>
+          <div class="meta-row">
+            <div>Taiwanese Journal of Mathematics. <strong>2015</strong>, Vol. 19, No. 1 p. 175-191</div>
+            <div>DOI: <a href="https://doi.org/10.11650/tjm.18.2014.3856" class="muted" target="_blank">10.11650/tjm.18.2014.3856</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>. </div>
+          <div class="title">Newton-Kantorovich type Theorem by Using Recurrence Relations for a Fifth-order Method in Banach Spaces.</div>
+          <div class="meta-row">
+            <div>Journal of Computational Analysis and Applications. <strong>2014</strong>, Vol. 17, No. 3 p. 486-497</div>
+<!--                    <div><a href="http://www.eudoxuspress.com/244/JOCAAA-VOL-17-2014.pdf" class="muted" target="_blank">PDF</a></div>
+<div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>陈亮</strong>， 顾传青，郑林. </div>
+          <div class="title">非线性方程的数值迭代法及其半局部收敛性.</div>
+          <div class="meta-row">
+            <div>数学进展. <strong>2014</strong>, Vol. 43, No. 4 p. 481-495</div>
+           <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqWAbTFTDNr-VQpIonfuHsrqNH8jDEFjEHF0V_xDxZz98w_mPfpVy9-VgCjLwMhF4f-RdbDxQO8wQkdF5l0hM9lq52m7QIfDK6rg9Chc6aHuiZ1oG5zv9MBhJx1Bin4xDyoh33lAWqVQSmH0_fi8dWv9zlBB492-wn42KbJ2Pt2f2w==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>. </div>
+          <div class="title">A Family of Improved Secant-Like Method with Super-Linear Convergence.</div>
+          <div class="meta-row">
+            <div>International Journal of Mathematical and Computational Sciences. <strong>2013</strong>, Vol. 7, No. 4 p. 635 - 638</div>
+            <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang Ma. </div>
+          <div class="title">Recurrence relations for the Harmonic mean Newton's method in Banach spaces.</div>
+          <div class="meta-row">
+            <div>Journal of Computational Analysis and Applications. <strong>2013</strong>, Vol. 14, No. 6 p. 1154-1164</div>
+<!--             <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
+       <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Yanfang Ma. </div>
+          <div class="title">A fourth-order iterative method for solving nonlinear equations.</div>
+          <div class="meta-row">
+            <div>淮北师范大学学报(自然科学版). <strong>2012</strong>, Vol. 33, No. 1 p. 5-10</div>
+           <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqXpqqri1h5KpJs2SgvGUkJ8whZx_8X6fbQBy132GniE8q4ZKdpCgmhkpXhT8aPylIuG6CBH4OqTGT5_Kp9EVUh5e6urYrtcLvy4ijXq0c5a2OKGE3xmA_-7RfX3J0oTnEN0Dzy5mca3WhPCHazi68ACGVKQHeKPMPvxWOHVVEeoYg==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
+<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Chuanqing GU(#). </div>
+          <div class="title">A new modified King-Werner method solving nonlinear equations.</div>
+          <div class="meta-row">
+            <div>2011 IEEE 3rd International Conference on Communication Software and Networks (ICCSN 2011). <strong>2011.05</strong>, p. 486-489</div>
+           <div>DOI: <a href="https://doi.org/10.1109/ICCSN.2011.6014615" class="muted" target="_blank">10.1109/ICCSN.2011.6014615</a></div>
+<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang MA. </div>
+          <div class="title">Semilocal convergence for a fifth-order Newton's method using recurrence relations in Banach spaces.</div>
+          <div class="meta-row">
+            <div>Journal of Applied Mathematics. <strong>2011</strong>, Vol. 2011 p. 15 Pages</div>
+           <div>DOI: <a href="https://doi.org/10.1155/2011/786306" class="muted" target="_blank">10.1155/2011/786306</a></div>
+<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
+          <div class="title">A new modified King-Werner method for solving nonlinear equations.</div>
+          <div class="meta-row">
+            <div>Computers and Mathematics with Applications. <strong>2011</strong>, Vol. 62, No. 10 p. 3700-3705</div>
+           <div>DOI: <a href="https://doi.org/10.1016/j.camwa.2011.09.012" class="muted" target="_blank">10.1016/j.camwa.2011.09.012</a></div>
+<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+        <li><div class="pub">
+          <div>Chuanqing GU, <strong>Liang CHEN</strong>. </div>
+          <div class="title">A linear system expression for solving Padé problems.</div>
+          <div class="meta-row">
+            <div>PROCEEDINGS OF THE 14TH CONFERENCE OF INTERNATIONAL LINEAR ALGEBRA SOCIETY. <strong>2007</strong>, p. 31-34</div>
+           <div><a href="https://openlibrary.org/books/OL23394964M/Proceedings_of_the_14th_Conference_of_International_Linear_Algebra_Society" class="muted" target="_blank">URL</a></div>
+<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
+          </div>
+        </div>
+
+
 
         <!-- 可按需复制更多条目 -->
         </ol>
       </div>
 
-      <div style="margin-top:12px">
+<!--      <div style="margin-top:12px">
         <a href="#" class="muted">完整论文列表（Google Scholar / ORCID / 研究主页）</a>
       </div>
+-->
     </section>
 
-    <section id="projects" class="card" aria-labelledby="projTitle">
-      <h2 id="projTitle">科研项目</h2>
-      <div style="margin-top:8px;color:var(--muted)">概述你主持或参与的主要科研项目（经费来源、时间、你的角色）。</div>
-
-      <div class="projects" style="margin-top:12px">
-        <div class="project">
-          <strong>项目 A（国家/机构）</strong>
-          <div class="muted" style="margin-top:6px">时间 · 角色：项目负责人 / 参与者。简述目标与成果。</div>
-        </div>
-        <div class="project">
-          <strong>项目 B（校内/产学研）</strong>
-          <div class="muted" style="margin-top:6px">时间 · 角色：简述目标与成果。</div>
-        </div>
+    <section id="teachingproject" class="card" aria-labelledby="teachTitle">
+      <h2 id="teachTitle">教学项目</h2>
+      <div style="margin-top:12px">
+      <h3 id="teachTitle">省部级教学课题</h3>
+      <ul style="margin-top:8px;color:var(--muted)">
+        <li>“数智赋能”大学数学课程思政教学内容更新与教学方法改革研究（No. 2025JGYB026），江苏省2025年高等教育教改研究课题，2025.09-2027.08；</li>
+        <li>大学数学课程思政建设与应用（No. 23SX0313），中国高等教育学会2023年度高等教育科学研究规划课题，0.5万，2024.01-2025.12；</li>
+        <li>应用型人才培养模式下的大学数学分层次教学的研究与实践（No. 2014ZDJY058），安徽省教育厅高等教育振兴计划（重大）教学改革研究项目，2015.01-2017.12，10万。</li>
+      </ul>
+      </div>
+      <div style="margin-top:12px">
+      <h3 id="teachTitle">校级教学课题</h3>
+      <ul style="margin-top:8px;color:var(--muted)">
+       <li>基于课程思政的大学数学教育教学新业态探索（No. JGKT202511），常州工学院 2025 年教学改革研究课题，2025.09-2027.08；</li>
+       <li>“数学分析”课程思政教学团队（No. SZTD202406），常州工学院 2024 年教学建设项目，2024.09-2026.08；</li>
+       <li>“数学分析”混合式金课（No. JK2023-9），常州工学院 2023 年“课程思政”</li>
+       <li>数据科学与大数据技术（No. 30120300100-23-yb-sfzy05），常州工学院“课程思政”示范专业建设点，2023.09-2025.08；</li>
+       <li>高等数学课程思政</li> 
+       <li>大学数学课程融入课程思政的探索与研究（No. 2020XJXYJ021），淮北师范大学教学研究（重点）项目，0.6万，2021.01-2022.12，主持
+</li>
+        <li>高等数学精品课程建设的研究与实践（No. 800391），淮北师范大学教学研究项目，2007.01-2008.12，0.2万，主持
+</li>
+      </ul>
       </div>
     </section>
+
 
     <section id="teaching" class="card" aria-labelledby="teachTitle">
       <h2 id="teachTitle">教学与学生指导</h2>
@@ -274,10 +534,10 @@
     </section>
 
     <section id="contact" class="card" aria-labelledby="contactTitle">
-      <h2 id="contactTitle">联系</h2>
-      <p class="muted" style="margin-top:8px">欢迎通过邮件联系（请在标题中写明来意），或使用下面的社交学术链接。</p>
+      <h2 id="contactTitle">联系我</h2>
+      <p class="muted" style="margin-top:8px">欢迎通过邮件联系（请在标题中写明来意）。</p>
 
-      <div style="margin-top:12px" class="contact-grid">
+<!--      <div style="margin-top:12px" class="contact-grid">
         <form onsubmit="event.preventDefault(); sendMail()" style="display:grid;gap:8px">
           <input id="name" type="text" placeholder="你的姓名" required />
           <input id="email" type="email" placeholder="你的邮箱" required />
@@ -286,25 +546,25 @@
             <button class="btn" type="submit">发送邮件</button>
             <a class="btn" href="mailto:your.email@example.com">发邮件</a>
           </div>
-        </form>
+        </form> -->
 
         <div>
           <div style="display:flex;flex-direction:column;gap:8px">
-            <div><strong>Email</strong><div class="muted" style="margin-top:6px">your.email@example.com</div></div>
-            <div><strong>办公室</strong><div class="muted" style="margin-top:6px">建筑 / 房间号 · 单位地址</div></div>
+            <div><strong>Email</strong><div class="muted" style="margin-top:6px"><a href="mailto:clmyf@163.com">clmyf@163.com</a> · <a href="mailto:chenliang1977@gmail.com">chenliang1977@gmail.com</a></div></div>
+            <div><strong>办公室</strong><div class="muted" style="margin-top:6px">玉衡楼 B519 · 常州工学院</div></div>
             <div style="margin-top:6px">
-              <strong>学术链接</strong>
+<!--              <strong>学术链接</strong>
               <div class="muted" style="margin-top:6px">
                 <a href="#" id="scholarLink">Google Scholar</a> · <a href="#" id="orcidLink2">ORCID</a> · <a href="#" id="githubLink">GitHub</a>
-              </div>
+              </div> -->
             </div>
           </div>
-        </div>
+<!--        </div>-->
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> 姓名 · 单位 · 研究者主页
+      © <span id="year"></span> 陈亮 · 常州工学院 · <a href="https://clmyf.github.io">clmyf.github.io</a>
     </footer>
   </main>
 
