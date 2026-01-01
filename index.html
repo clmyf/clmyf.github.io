@@ -1,1408 +1,1796 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Liang Chen （陈亮）</title>
-  <meta name="description" content="陈亮 - 学术研究者个人主页" />
-  <style>
-    :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0ea5e9;
-      --sidebar-w:260px;
-      --radius:12px;
-      --maxw:1100px;
-      color-scheme: light;
-      font-family: Georgia, "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f4f6fb 0%, #eef2f7 60%);color:#0f1724;-webkit-font-smoothing:antialiased}
-    /* Layout */
-    .toggle-btn{
-      display:none;
-      position:fixed;
-      left:14px;top:14px;z-index:60;
-      background:var(--accent);border:none;color:#fff;padding:10px;border-radius:10px;cursor:pointer;
-      box-shadow:0 8px 20px rgba(14,165,233,0.12);
-    }
-    .overlay{display:none}
-    .sidebar{
-      position:fixed;
-      left:20px;
-      top:20px;
-      bottom:20px;
-      width:var(--sidebar-w);
-      background:var(--card);
-      border-radius:14px;
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      box-shadow:0 10px 30px rgba(12,18,30,0.06);
-      z-index:50;
-    }
-    .brand{display:flex;gap:12px;align-items:center}
-    .photo{width:80px;height:90px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px}
-    .name{font-weight:800}
-    .affil{color:var(--muted);font-size:13px}
-    nav{margin-top:8px;display:flex;flex-direction:column;gap:6px;overflow:auto;padding-right:6px}
-    nav a{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;color:#1f2937;text-decoration:none;font-weight:700;font-size:14px}
-    nav a:hover{color:var(--accent);background:rgba(14,165,233,0.06)}
-    nav a.active{color:#fff;background:linear-gradient(90deg,var(--accent),#7c3aed)}
-    .meta{margin-top:auto;color:var(--muted);font-size:13px}
-    .meta a{color:var(--accent);text-decoration:none;font-weight:700}
-    .content{
-      margin-left: calc(var(--sidebar-w) + 60px);
-      padding:28px;
-      max-width:var(--maxw);
-    }
-    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(12,18,30,0.04);margin-bottom:18px}
-    h1,h2{margin:0 0 8px}
-    p.lead{color:var(--muted);margin:0 0 12px;line-height:1.6}
-    .badges{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{background:rgba(14,165,233,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
-    .pub-list{display:flex;flex-direction:column;gap:12px;margin-top:10px}
-    .pub{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(14,165,233,0.02), rgba(0,0,0,0.00));}
-    .pub .title{font-weight:700}
-    .meta-row{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-top:6px}
-    .projects{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
-    .project{padding:12px;border-radius:8px;background:rgba(14,165,233,0.03)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    a.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#04263a;text-decoration:none;font-weight:700}
-    footer{text-align:center;color:var(--muted);margin-top:30px;padding-bottom:40px}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Liang Chen （陈亮）</title>
+<meta name="description" content="陈亮 - 学术研究者个人主页" />
+<style>
+:root {
+--bg:#f6f7fb;
+--card:#ffffff;
+--muted:#6b7280;
+--accent:#0ea5e9;
+--sidebar-w:260px;
+--radius:12px;
+--maxw:1100px;
+    color-scheme: light;
+    font-family: "Noto Sans SC", Georgia, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+* {
+    box-sizing: border-box
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg, #f4f6fb 0%, #eef2f7 60%);
+    color: #0f1724;
+    -webkit-font-smoothing: antialiased
+}
+/* Layout */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    left: 14px;
+    top: 14px;
+    z-index: 60;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(14,165,233,0.12);
+}
+.overlay {
+    display: none
+}
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(12,18,30,0.06);
+    z-index: 50;
+}
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+.photo {
+    width: 80px;
+    height: 90px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 22px
+}
+.name {
+    font-weight: 800
+}
+.affil {
+    color: var(--muted);
+    font-size: 13px
+}
+nav {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: auto;
+    padding-right: 6px
+}
+nav a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px
+}
+nav a:hover {
+    color: var(--accent);
+    background: rgba(14,165,233,0.06)
+}
+nav a.active {
+    color: #fff;
+    background: linear-gradient(90deg, var(--accent), #7c3aed)
+}
+.meta {
+    margin-top: auto;
+    color: var(--muted);
+    font-size: 13px
+}
+.meta a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700
+}
+.content {
+    margin-left: calc(var(--sidebar-w) + 60px);
+    padding: 28px;
+    max-width: var(--maxw);
+}
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(12,18,30,0.04);
+    margin-bottom: 18px
+}
+h1, h2 {
+    margin: 0 0 8px
+}
+p.lead {
+    color: var(--muted);
+    margin: 0 0 12px;
+    line-height: 1.6
+}
+.badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+.badge {
+    background: rgba(14,165,233,0.08);
+    color: var(--accent);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px
+}
+.pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px
+}
+.pub {
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(14,165,233,0.02), rgba(0,0,0,0.00));
+}
+.pub .title {
+    font-weight: 700
+}
+.meta-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px
+}
+.projects {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px
+}
+.project {
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(14,165,233,0.03)
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+a.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--accent), #7c3aed);
+    color: #04263a;
+    text-decoration: none;
+    font-weight: 700
+}
+footer {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 30px;
+    padding-bottom: 40px
+}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .sidebar{transform:translateX(-110%);left:12px;top:12px;bottom:12px}
-      .toggle-btn{display:block}
-      .overlay{display:block;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:45;opacity:0;pointer-events:none;transition:opacity .18s}
-      .overlay.show{opacity:1;pointer-events:auto}
-      .content{margin-left:0;padding:18px}
-      .sidebar.open{transform:translateX(0);transition:transform .25s}
-    }
-    @media (max-width:720px){ .projects{grid-template-columns:1fr} .contact-grid{grid-template-columns:1fr} .photo{width:56px;height:56px}}
-    small.muted{color:var(--muted)}
-  </style>
+/* Responsive */
+@media (max-width:980px) {
+.sidebar {
+    transform: translateX(-110%);
+    left: 12px;
+    top: 12px;
+    bottom: 12px
+}
+.toggle-btn {
+    display: block
+}
+.overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 45;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s
+}
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto
+}
+.content {
+    margin-left: 0;
+    padding: 18px
+}
+.sidebar.open {
+    transform: translateX(0);
+    transition: transform .25s
+}
+}
+
+@media (max-width:720px) {
+.projects {
+    grid-template-columns: 1fr
+}
+.contact-grid {
+    grid-template-columns: 1fr
+}
+.photo {
+    width: 56px;
+    height: 56px
+}
+}
+small.muted {
+    color: var(--muted)
+}
+</style>
 </head>
+
 <body>
-  <button class="toggle-btn" id="openSidebar" aria-label="打开导航">☰ 导航</button>
-  <div class="overlay" id="overlay" aria-hidden="true"></div>
-
-  <aside class="sidebar" id="sidebar" aria-labelledby="siteTitle">
-    <div class="brand">
-      <div class="photo" aria-hidden="true"><img src="DS160.jpg" width="70" height="70" alt=""/></div>
-      <div>
-        <div id="siteTitle" class="name">Liang Chen</div>
-        <div id="siteTitle" class="name">陈亮</div>
-        <div class="affil">常州工学院 · 理学院</div>
-        <div class="affil"> 教授</div>
-      </div>
+	<button class="toggle-btn" id="openSidebar" aria-label="打开导航">☰ 导航</button>
+	<div class="overlay" id="overlay" aria-hidden="true"></div>
+	<aside class="sidebar" id="sidebar" aria-labelledby="siteTitle">
+	<div class="brand">
+		<div class="photo" aria-hidden="true"><img src="DS160.jpg" width="70" height="70" alt=""/></div>
+		<div>
+			<div id="siteTitle" class="name">Liang Chen</div>
+			<div id="siteTitle" class="name">陈亮</div>
+			<div class="affil">常州工学院 · 理学院</div>
+			<div class="affil"> 教授</div>
+		</div>
+	</div>
+	<nav role="navigation" aria-label="主导航" id="mainNav"> 
+	  <a href="#home" data-target="home" class="active">简介</a> 
+	  <a href="#research" data-target="research">学习工作经历</a> 
+	  <a href="#projects" data-target="projects">科学研究项目</a> 
+	  <a href="#publications" data-target="publications">科学研究论文</a> 
+	  <a href="#teachingproject" data-target="teachingproject">教学研究项目</a> 
+	  <a href="#teachingpub" data-target="teachingpub">教学研究论文</a> 
+	  <a href="#cv" data-target="cv">硕士研究生</a>
+	  <a href="#teaching" data-target="teaching">教学情况</a>  
+	  <a href="#StuWork" data-target="StuWork">学生工作</a>
+	  <a href="#Honor" data-target="Honor">获奖情况</a>  
+	  <a href="#contact" data-target="contact">联系我</a> 
+	</nav>
+  <div class="meta">
+    <div style="display:flex;justify-content:space-between;align-items:center"> 
+      <!--    
+          <div class="muted"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a></div>
+          <div class="muted">chenliang1977@gmail.com</div><br>
+          <a class="btn" href="#" id="downloadCv">下载 CV</a>
+  --> 
     </div>
-
-    <nav role="navigation" aria-label="主导航" id="mainNav">
-      <a href="#home" data-target="home" class="active">简介</a>
-      <a href="#research" data-target="research">学习工作经历</a>
-      <a href="#projects" data-target="projects">科学研究项目</a>
-      <a href="#publications" data-target="publications">科学研究论文</a>
-      <a href="#teachingproject" data-target="teachingproject">教学研究项目</a>
-	  <a href="#teachingpub" data-target="teachingpub">教学研究论文</a>
-      <a href="#cv" data-target="cv">硕士研究生</a>
-      <a href="#teaching" data-target="teaching">教学情况</a>
-      <a href="#contact" data-target="contact">联系我</a>
-    </nav>
-
-    <div class="meta">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-<!--    
-        <div class="muted"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a></div>
-        <div class="muted">chenliang1977@gmail.com</div><br>
-        <a class="btn" href="#" id="downloadCv">下载 CV</a>
--->
-      </div>
-      <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-        ORCID: <a href="https://orcid.org/0000-0002-3788-6904" id="orcidLink">0000-0002-3788-6904</a><br>
-<!--   Google Scholar: <a href="#" id="gsLink">个人主页</a>  -->
-      </div>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted)"> ORCID: <a href="https://orcid.org/0000-0002-3788-6904" id="orcidLink" target="_blank">0000-0002-3788-6904</a><br>
+      百度百科: <a href="https://baike.baidu.com/item/%E9%99%88%E4%BA%AE/13476578" id="baiduLink" target="_blank">个人主页</a> </div>
+  </div>
+</aside>
+<main class="content" id="mainContent">
+  <section id="home" class="card" aria-labelledby="homeTitle">
+    <h1 id="homeTitle">Liang Chen / 陈亮</h1>
+    <p class="lead">教授 · 硕导。
+    <h3>研究方向</h3>
+    <p class="muted" style="margin-top:8px">人工智能与机器学习中的数值最优化方法与数值方法，主要关注算法的设计与分析，以及如何高效、稳定地求解相关的优化问题。</p>
+    <!--       我的研究集中在 1. 数值优化; 2. 数值代数，特别关注人工智能与机器学习中的最优化算法、数值方法。-->
+    <p>欢迎关注我的研究，请联系我探讨合作。</p>
+    </p>
+    <!--
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <a class="btn" href="#publications">代表论文</a>
+          <a class="btn" href="#projects">科研项目</a>
+        </div>
+  -->
+    <div style="margin-top:14px" class="badges" aria-hidden="true"> <span class="badge">数值最优化</span> <span class="badge">数值代数</span> 
+      <!--        <span class="badge">数据科学</span>  --> 
+      <span class="badge">机器学习</span> </div>
+  </section>
+  <section id="research" class="card" aria-labelledby="researchTitle">
+    <h2 id="researchTitle">学习工作经历</h2>
+    <p class="muted" style="margin-top:8px">1997 年进入淮北师范大学数学科学学院数学与应用数学专业学习，于 2001 年获得理学学士学位，毕业后留校担任数学专任教师，工作期间分别于 2008 年与 2013 年在上海大学获得理学硕、博士学位，此后在淮北师范大学任教至 2021 年 8 月，于 2023 年 3 月正式入职常州工学院理学院担任教授。在此期间，为了提升学术与教学水平，分别于 2014 年与 2019 年到复旦大学与美国德克萨斯州立大学阿灵顿分校访学。</p>
+    <h3>学习经历</h3>
+    <!--
+          <ul>
+              <li><div class="pub">September 2010-June 2013，上海大学 · 理学院数学系，计算数学专业，博士研究生</div></li>
+              <li><div class="pub">March 2006-June 2008，上海大学 · 理学院数学系，计算数学专业，硕士研究生</div></li>
+              <li><div class="pub">September 1997-June 2001，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），数学与应用数学专业，本科</div></li>
+          </ul>
+  -->
+    <ul>
+      <li>
+        <div class="pub">2010.09-2013.06，上海大学 · 理学院数学系，计算数学专业，博士研究生</div>
+      </li>
+      <li>
+        <div class="pub">2006.03-2008.06，上海大学 · 理学院数学系，计算数学专业，硕士研究生</div>
+      </li>
+      <li>
+        <div class="pub">1997.09-2001.06，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），数学与应用数学专业，本科</div>
+      </li>
+    </ul>
+    <h3>工作经历</h3>
+    <ul>
+      <li>
+        <div class="pub">2023.03- 至今，常州工学院 · 理学院，教授</div>
+      </li>
+      <li>
+        <div class="pub">2019.08-2020.08，The University of Texas at Arlington. Visiting Scholar. Supervisor：Prof. Ren-Cang Li</div>
+      </li>
+      <li>
+        <div class="pub">2017.12-2023.02，淮北师范大学 · 数学科学学院，教授</div>
+      </li>
+      <li>
+        <div class="pub">2014.07-2014.08，复旦大学 · 数学科学学院，访问学者，合作导师：苏仰锋教授</div>
+      </li>
+      <li>
+        <div class="pub">2012.09-2017.11，淮北师范大学 · 数学科学学院，副教授</div>
+      </li>
+      <li>
+        <div class="pub">2007.09-2012.08，淮北师范大学 · 数学科学学院，讲师</div>
+      </li>
+      <li>
+        <div class="pub">2001.07-2007.08，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），助教</div>
+      </li>
+    </ul>
+    <!--
+        <h3 style="margin-top:12px">当前课题</h3>
+        <ul style="margin-top:8px;color:var(--muted)">
+          <li>课题一：简短描述（方法 / 目标 / 现状）</li>
+          <li>课题二：简短描述（方法 / 目标 / 现状）</li>
+        </ul>
+  --> 
+  </section>
+  <section id="projects" class="card" aria-labelledby="projTitle">
+    <h2 id="projTitle">科学研究项目</h2>
+    <p style="margin-top:8px;color:var(--muted)">主持省部级科研项目 1 项，厅级科研项目 4 项，主持其他各级各类科研项目 2 项；参与国家级科研项目 1 项（主要参与人），参与省部级、厅级及其他各级各类科研项目若干。</p>
+    <div style="margin-top:12px">
+      <h3>省部级项目</h3>
+      <ul>
+        <li>
+          <div class="pub"> <strong>大规模非线性方程组的迭代解（No. 1508085MA14）.</strong>
+            <div class="muted" style="margin-top:6px">安徽省自然科学基金委员会，安徽省自然科学基金（面上）项目，2015.07-2017.06</div>
+          </div>
+        </li>
+      </ul>
+      <h3>厅级及其他级别项目</h3>
+      <ul>
+        <li>
+          <div class="pub"> <strong>基于大数据的企业综合管理软件开发（横向课题）.</strong>
+            <div class="muted" style="margin-top:6px">南京晴栩科技有限公司，2025.4-2026.4</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>优秀中青年骨干人才国内外访学研修（No. GXGWFX2019022）.</strong>
+            <div class="muted" style="margin-top:6px">安徽省教育厅，高校优秀拔尖人才培育项目，2019.01-2021.12</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>基于信赖域的非线性方程组和无约束优化问题的数值算法（No. KJ2017A375）.</strong>
+            <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2017.01-2018.12</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>大规模非线性方程组和无约束优化问题的数值解（No. KJ2014A223）.</strong>
+            <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2014.01-2015.12</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>非线性方程组的数值解及其理论分析（No. KJ2012Z347）.</strong>
+            <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究项目，2012.01-2013.12</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>Banach 空间中非线性方程组的数值解（No. 2012XQ42）.</strong>
+            <div class="muted" style="margin-top:6px">淮北师范大学，科学研究青年项目，2012.01-2013.12</div>
+          </div>
+        </li>
+      </ul>
     </div>
-  </aside>
-
-  <main class="content" id="mainContent">
-    <section id="home" class="card" aria-labelledby="homeTitle">
-      <h1 id="homeTitle">Liang Chen / 陈亮</h1>
-      <p class="lead">教授 · 硕导。
-      <h3>研究方向</h3>
-      <p class="muted" style="margin-top:8px">人工智能与机器学习中的数值最优化方法与数值方法，主要关注算法的设计与分析，以及如何高效、稳定地求解相关的优化问题。</p>
-<!--       我的研究集中在 1. 数值优化; 2. 数值代数，特别关注人工智能与机器学习中的最优化算法、数值方法。-->
-		<p>欢迎关注我的研究，请联系我探讨合作。</p>
-        </p>
-<!--
-      <div style="display:flex;gap:10px;margin-top:12px">
-        <a class="btn" href="#publications">代表论文</a>
-        <a class="btn" href="#projects">科研项目</a>
-      </div>
--->
-      <div style="margin-top:14px" class="badges" aria-hidden="true">
-        <span class="badge">数值最优化</span>
-        <span class="badge">数值代数</span>
-<!--        <span class="badge">数据科学</span>  -->
-        <span class="badge">机器学习</span>
-      </div>
-    </section>
-
-    <section id="research" class="card" aria-labelledby="researchTitle">
-      <h2 id="researchTitle">学习工作经历</h2>
-		<h3>学习经历</h3>
-<!--
-		<ul>
-			<li><div class="pub">September 2010-June 2013，上海大学 · 理学院数学系，计算数学专业，博士研究生</div></li>
-			<li><div class="pub">March 2006-June 2008，上海大学 · 理学院数学系，计算数学专业，硕士研究生</div></li>
-			<li><div class="pub">September 1997-June 2001，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），数学与应用数学专业，本科</div></li>
-		</ul>
--->
-		<ul>
-			<li><div class="pub">2010.09-2013.06，上海大学 · 理学院数学系，计算数学专业，博士研究生</div></li>
-			<li><div class="pub">2006.03-2008.06，上海大学 · 理学院数学系，计算数学专业，硕士研究生</div></li>
-			<li><div class="pub">1997.09-2001.06，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），数学与应用数学专业，本科</div></li>
-		</ul>
-		<h3>工作经历</h3>
-		<ul>
-			<li><div class="pub">2023.03- 至今，常州工学院 · 理学院，教授</div></li>
-			<li><div class="pub">2019.08-2020.08，The University of Texas at Arlington. Visiting Scholar. Supervisor：Prof. Ren-Cang Li</div></li>
-			<li><div class="pub">2017.12-2023.02，淮北师范大学 · 数学科学学院，教授</div></li>
-			<li><div class="pub">2014.07-2014.08，复旦大学 · 数学科学学院，访问学者，合作导师：苏仰锋教授</div></li>
-			<li><div class="pub">2012.09-2017.11，淮北师范大学 · 数学科学学院，副教授</div></li>
-			<li><div class="pub">2007.09-2012.08，淮北师范大学 · 数学科学学院，讲师</div></li>
-			<li><div class="pub">2001.07-2007.08，淮北师范大学 · 数学科学学院（原“淮北煤炭师范学院 · 数学系”），助教</div></li>
-			
-		</ul>
-<!--
-      <h3 style="margin-top:12px">当前课题</h3>
-      <ul style="margin-top:8px;color:var(--muted)">
-        <li>课题一：简短描述（方法 / 目标 / 现状）</li>
-        <li>课题二：简短描述（方法 / 目标 / 现状）</li>
-      </ul>
--->
-    </section>
-
-
-    <section id="projects" class="card" aria-labelledby="projTitle">
-      <h2 id="projTitle">科学研究项目</h2>
-      <div style="margin-top:8px;color:var(--muted)">主持省部级项目 1 项，厅级项目 4 项，主持或参与其他各级各类科研项目若干。</div>
-
-      <div style="margin-top:12px">
-		  <h3>省部级项目</h3>
-        <ul><li><div class="pub">
-          <strong>大规模非线性方程组的迭代解（No. 1508085MA14）</strong>
-          <div class="muted" style="margin-top:6px">安徽省自然科学基金委员会，安徽省自然科学基金（面上）项目，2015.07-2017.06</div>
-        </div></li></ul>		  
-		  <h3>厅级及其他级别项目</h3>
-        <ul><li><div class="pub">
-          <strong>基于大数据的企业综合管理软件开发（横向课题）</strong>
-          <div class="muted" style="margin-top:6px">南京晴栩科技有限公司，2025.4-2026.4</div>
-        </div></li>
-
-        <li><div class="pub">
-          <strong>优秀中青年骨干人才国内外访学研修（No. GXGWFX2019022）</strong>
-          <div class="muted" style="margin-top:6px">安徽省教育厅，高校优秀拔尖人才培育项目，2019.01-2021.12</div>
-        </div></li>
-
-        <li><div class="pub">
-          <strong>基于信赖域的非线性方程组和无约束优化问题的数值算法（No. KJ2017A375）</strong>
-          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2017.01-2018.12</div>
-        </div></li>
-
-        <li><div class="pub">
-          <strong>大规模非线性方程组和无约束优化问题的数值解（No. KJ2014A223）</strong>
-          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究（重点）项目，2014.01-2015.12</div>
-        </div></li>
-
-        <li><div class="pub">
-          <strong>非线性方程组的数值解及其理论分析（No. KJ2012Z347）</strong>
-          <div class="muted" style="margin-top:6px">安徽省教育厅，高校自然科学研究项目，2012.01-2013.12</div>
-        </div></li>
-
-        <li><div class="pub">
-          <strong>Banach 空间中非线性方程组的数值解</strong>
-          <div class="muted" style="margin-top:6px">淮北师范大学，科学研究青年项目，2012.01-2013.12</div>
-        </div></li>
-		  </ul>
-      </div>
-    </section>
-
-
-    <section id="publications" class="card" aria-labelledby="pubTitle">
-      <h2 id="pubTitle">科学研究论文</h2>
-<!--      <p class="muted" style="margin-top:6px">以下为部分代表性论文，完整列表请查看 Google Scholar 或 CV。</p>  -->
-
-      <div class="pub-list" id="pubList">
-        <ol>
-         <li><div class="pub">
-          <div>Yuan JIN, Guangyun XU, <strong>Liang CHEN</strong>(#).</div>
-          <div class="title">A New Hestenes–Stiefel-Type Conjugate Gradient Method for Large-Scale Unconstrained Optimization Problems.</div>
-          <div class="meta-row">
-            <div>International Journal of Applied and Computational Mathematics. <strong>2025</strong>, Vol. 11, No. 5, article number 218</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s40819-025-02036-z" class="muted" target="_blank">10.1007/s40819-025-02036-z</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
-          <div class="title">The Evolution Mechanism of Correctness for Cyber-Physical System.</div>
-          <div class="meta-row">
-            <div>International Journal of Software Engineering and Knowledge Engineering. <strong>2024</strong>, Vol. 34, No. 07
-p. 1095-1134 </div>
-           <div>DOI: <a href="https://doi.org/10.1142/s0218194024500153" class="muted" target="_blank">10.1142/s0218194024500153</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
-          <div class="title">A modified Levenberg–Marquardt method for solving systems of nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Journal of Applied Mathematics and Computing. <strong>2023</strong>, Vol. 69, No. 2, p. 2019-2040</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s12190-022-01823-x" class="muted" target="_blank">10.1007/s12190-022-01823-x</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
-          <div class="title">A New Modified Levenberg-Marquardt Method for Systems of Nonlinear Equations.</div>
-          <div class="meta-row">
-            <div>Journal of Mathematics. <strong>2023</strong>, Vol. 2023, p. 6043780</div>
-            <div>DOI: <a href="https://doi.org/10.1155/2023/6043780" class="muted" target="_blank">10.1155/2023/6043780</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Lin ZHENG, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
-          <div class="title">A variant of the Levenberg-Marquardt method with adaptive parameters for systems of nonlinear equations.</div>
-          <div class="meta-row">
-            <div>AIMS Mathematic. <strong>2022</strong>, Vol. 7, No. 1 p. 1241-1256</div>
-            <div>DOI: <a href="https://doi.org/10.3934/math.2022073" class="muted" target="_blank">10.3934/math.2022073</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-
-        <li><div class="pub">
-          <div>Lin ZHENG, <strong>Liang CHEN</strong>, Yangxin TANG. </div>
-          <div class="title">Convergence rate of the modified Levenberg-Marquardt method under Hölderian local error bound.</div>
-          <div class="meta-row">
-            <div>Open Mathematics. <strong>2022</strong>, Vol. 20, No. 1 p. 998-1012</div>
-            <div>DOI: <a href="https://doi.org/10.1515/math-2022-0485" class="muted" target="_blank">10.1515/math-2022-0485</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, Xiaotong GAO, Wei ZHOU, <strong>Liang CHEN</strong>. </div>
-          <div class="title">The Trustworthiness Measurement Model of Component Based on Defects.</div>
-          <div class="meta-row">
-            <div>Mathematical Problems in Engineering. <strong>2022</strong>, Vol. 2022, Article ID 7290001, 15 pages </div>
-           <div>DOI: <a href="https://doi.org/10.1155/2022/7290001" class="muted" target="_blank">10.1155/2022/7290001</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Zhenxiang WU, Tong ZHOU, Lei LI, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
-          <div class="title">A New Modified Efficient Levenberg–Marquardt Method for Solving Systems of Nonlinear Equations.</div>
-          <div class="meta-row">
-            <div>Mathematical Problems in Engineering. <strong>2021</strong>, Vol. 2021 p. Article ID 5608195, 11 pages</div>
-            <div>DOI: <a href="https://doi.org/10.1155/2021/5608195" class="muted" target="_blank">10.1155/2021/5608195</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>周童，<strong>陈亮</strong>(#)，伍珍香. </div>
-          <div class="title">一种求解非线性方程组的Levenberg-Marquardt方法及其收敛性.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2021</strong>,  Vol. 42, No. 01 p. 1-7</div>
-            <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
-          <div class="title">An efficient m-step Levenberg-Marquardt method for systems of nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Journal of Computational Analysis and Applications. <strong>2020</strong>, Vol. 28, No. 3, p. 543-559</div>
-          <div><a href="https://www.eudoxuspress.com/index.php/pub/issue/view/18/17" class="muted" target="_blank">URL</a></div>
-<!--               <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-          
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
-          <div class="title">Shamanskii-like Levenberg-Marquardt method with a new line search for systems of nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Journal of Systems Science and Complexity. <strong>2020</strong>, Vol. 33, No. 5, p. 1694-1707</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s11424-020-9043-x" class="muted" target="_blank">10.1007/s11424-020-9043-x</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>伍珍香，<strong>陈亮</strong>(#)， 周童. </div>
-          <div class="title">一种改进的求解非线性方程组的Levenberg-Marquardt方法.</div>
-          <div class="meta-row">
-            <div>延边大学学报(自然科学版). <strong>2020</strong>, Vol. 46, No. 04 p. 302-307+332</div>
-            <div>DOI: <a href="https://doi.org/10.16379/j.cnki.issn.1004-4353.2020.04.004" class="muted" target="_blank">10.16379/j.cnki.issn.1004-4353.2020.04.004</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Mengyue WANG, Yanfang MA, Guanru LI, Wei ZHOU, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Multi-Value Models for Allocation of Software Component Development Costs Based on Trustworthiness.</div>
-          <div class="meta-row">
-            <div>IEEE Access. <strong>2020</strong>, Vol. 8, p. 122673-122684</div>
-           <div>DOI: <a href="https://doi.org/10.1109/ACCESS.2020.3007158" class="muted" target="_blank">10.1109/ACCESS.2020.3007158</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>马艳芳, 王梦月, 周伟, <strong>陈亮</strong>. </div>
-          <div class="title">基于可信性的模块化软件开发费用分配算法.</div>
-          <div class="meta-row">
-            <div>计算机工程与科学. <strong>2020</strong>, Vol. 42, No. 6, p. 1021-1029 </div>
-           <div>DOI: <a href="http://joces.nudt.edu.cn/CN/volumn/volumn_1428.shtml" class="muted" target="_blank">URL</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Mengyue WANG, Yanfang MA, Haiyu PAN, Hongwei TAO, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Trade-off Costs of Software Trustworthy Attributes.</div>
-          <div class="meta-row">
-            <div>International Journal of Performability Engineering. <strong>2019</strong>,  Vol. 15, No. 9, p. 2422-2431 </div>
-           <div>DOI: <a href="https://doi.org/10.23940/ijpe.19.09.p16.24222431" class="muted" target="_blank">10.23940/ijpe.19.09.p16.24222431</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Chen, Liang</strong>, Cuizhen DU, Yanfang MA. </div>
-          <div class="title">The higher-order Levenberg-Marquardt method with Armijo type line search for nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Optimization Methods and Software. <strong>2017</strong>, Vol. 32, No. 3 p. 516-533</div>
-            <div>DOI: <a href="https://doi.org/10.1080/10556788.2016.1225214" class="muted" target="_blank">10.1080/10556788.2016.1225214</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>苏晨诚，<strong>陈亮</strong>(#). </div>
-          <div class="title">求解非线性方程组的加速多步 Levenberg-Marquardt 算法.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2017</strong>,  Vol. 38, No. 1 p. 24-30</div>
-            <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, <strong>Liang CHEN</strong>, Haiyu PAN. </div>
-          <div class="title">The Quantitative Analysis of Approximate Correctness for Real-Time Systems.</div>
-          <div class="meta-row">
-            <div>International Journal of Performability Engineering. <strong>2017</strong>, Vol. 13, No. 6, p. 886-896 </div>
-           <div>DOI: <a href="https://doi.org/10.23940/ijpe.17.06.p10.886896" class="muted" target="_blank">10.23940/ijpe.17.06.p10.886896</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>. </div>
-          <div class="title">A high-order modified Levenberg-Marquardt method for systems of nonlinear equations with fourth-order convergence.</div>
-          <div class="meta-row">
-            <div>Applied Mathematics and Computation. <strong>2016</strong>,  Vol. 285 p. 79-93</div>
-            <div>DOI: <a href="https://doi.org/10.1016/j.amc.2016.03.031" class="muted" target="_blank">10.1016/j.amc.2016.03.031</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>. </div>
-          <div class="title">A modified Levenberg-Marquardt method with line search for nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Computational Optimization and Applications. <strong>2016</strong>,  Vol. 65, No. 3 p. 753-779</div>
-            <div>DOI: <a href="https://doi.org/10.1007/s10589-016-9852-y" class="muted" target="_blank">10.1007/s10589-016-9852-y</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA, Chencheng SU. </div>
-          <div class="title">An efficient m-step Levenberg-Marquardt method for nonlinear equations.</div>
-          <div class="meta-row">
-            <div>ChinaXiv. <strong>2016</strong>, </div>
-            <div>ChinaXiv: <a href="https://www.chinaxiv.org/abs/201607.00035" class="muted" target="_blank">201607.00035</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Topological Constructions of Epsilon-Bisimulation.</div>
-          <div class="meta-row">
-            <div>Quantitative Logic and Soft Computing 2016: Proceedings of the 4th International Conference on Quantitative Logic and Soft Computing (QLSC2016) held at Hangzhou, China, 14-17 October. <strong>2016</strong> p. 213-223. 
-           DOI: <a href="https://doi.org/10.1007/978-3-319-46206-6_22" class="muted" target="_blank">10.1007/978-3-319-46206-6_22</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Probabilistic Model of Software Approximate Correctness.</div>
-          <div class="meta-row">
-            <div>Wuhan University Journal of Natural Sciences. <strong>2016</strong>, Vol. 21, No. 1, p. 47-55 </div>
-           <div>DOI: <a href="https://doi.org/10.1007/s11859-016-1137-x" class="muted" target="_blank">10.1007/s11859-016-1137-x</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
-          <div class="title">The Quantitative Analysis of Interaction between Software and Environment.</div>
-          <div class="meta-row">
-            <div>2016 International Symposium on System and Software Reliability (ISSSR 2016). <strong>2016</strong>, p. 13-19 </div>
-           <div>DOI: <a href="https://doi.org/10.1109/ISSSR.2016.012" class="muted" target="_blank">10.1109/ISSSR.2016.012</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Lin ZHENG, Ke ZHANG, <strong>Liang CHEN</strong>. </div>
-          <div class="title">On the convergence of a modified Chebyshev-like's method for solving nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Taiwanese Journal of Mathematics. <strong>2015</strong>, Vol. 19, No. 1 p. 175-191</div>
-            <div>DOI: <a href="https://doi.org/10.11650/tjm.18.2014.3856" class="muted" target="_blank">10.11650/tjm.18.2014.3856</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>. </div>
-          <div class="title">Newton-Kantorovich type Theorem by Using Recurrence Relations for a Fifth-order Method in Banach Spaces.</div>
-          <div class="meta-row">
-            <div>Journal of Computational Analysis and Applications. <strong>2014</strong>, Vol. 17, No. 3 p. 486-497</div>
-<!--                    <div><a href="http://www.eudoxuspress.com/244/JOCAAA-VOL-17-2014.pdf" class="muted" target="_blank">PDF</a></div>
-<div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>陈亮</strong>， 顾传青，郑林. </div>
-          <div class="title">非线性方程的数值迭代法及其半局部收敛性.</div>
-          <div class="meta-row">
-            <div>数学进展. <strong>2014</strong>, Vol. 43, No. 4 p. 481-495</div>
-           <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqWAbTFTDNr-VQpIonfuHsrqNH8jDEFjEHF0V_xDxZz98w_mPfpVy9-VgCjLwMhF4f-RdbDxQO8wQkdF5l0hM9lq52m7QIfDK6rg9Chc6aHuiZ1oG5zv9MBhJx1Bin4xDyoh33lAWqVQSmH0_fi8dWv9zlBB492-wn42KbJ2Pt2f2w==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>. </div>
-          <div class="title">基于部分交互的软件近似度量模型.</div>
-          <div class="meta-row">
-            <div>计算机工程与应用. <strong>2014</strong>, Vol. 50, No. 24, p. 32-37 </div>
-           <div>DOI: <a href="http://cea.ceaj.org/CN/abstract/abstract32676.shtml" class="muted" target="_blank">URL</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>. </div>
-          <div class="title">A Family of Improved Secant-Like Method with Super-Linear Convergence.</div>
-          <div class="meta-row">
-            <div>International Journal of Mathematical and Computational Sciences. <strong>2013</strong>, Vol. 7, No. 4 p. 635 - 638</div>
-            <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang Ma. </div>
-          <div class="title">Recurrence relations for the Harmonic mean Newton's method in Banach spaces.</div>
-          <div class="meta-row">
-            <div>Journal of Computational Analysis and Applications. <strong>2013</strong>, Vol. 14, No. 6 p. 1154-1164</div>
-<!--             <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
-       <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>. </div>
-          <div class="title">基于交互的环境近似度量模型.</div>
-          <div class="meta-row">
-            <div>山东大学学报(理学版). <strong>2013</strong>,  Vol. 48, No. 7, p. 33-38 </div>
-           <div>DOI: <a href="https://doi.org/10.6040/j.issn.1671-9352.1.2013.09" class="muted" target="_blank">10.6040/j.issn.1671-9352.1.2013.09</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>. </div>
-          <div class="title">基于 ε-互模拟的软件近似正确性模型. </div>
-          <div class="meta-row">
-            <div>计算机工程与应用. <strong>2013</strong>, Vol. 49, No. 11, p. 15-19</div>
-           <div>DOI: <a href="https://doi.org/10.3778/j.issn.1002-8331.1211-0125" class="muted" target="_blank">10.3778/j.issn.1002-8331.1211-0125</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang Ma. </div>
-          <div class="title">A fourth-order iterative method for solving nonlinear equations.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2012</strong>, Vol. 33, No. 1 p. 5-10</div>
-           <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqXpqqri1h5KpJs2SgvGUkJ8whZx_8X6fbQBy132GniE8q4ZKdpCgmhkpXhT8aPylIuG6CBH4OqTGT5_Kp9EVUh5e6urYrtcLvy4ijXq0c5a2OKGE3xmA_-7RfX3J0oTnEN0Dzy5mca3WhPCHazi68ACGVKQHeKPMPvxWOHVVEeoYg==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
-<!--        <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, Min ZHANG, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Infinite Evolution Mechanism of ε-Bisimilarity.</div>
-          <div class="meta-row">
-            <div>Quantitative Logic and Soft Computing 2012. <strong>2012</strong>, p. 252-259</div>
-           <div>DOI: <a href="https://doi.org/10.1142/9789814401531_0036" class="muted" target="_blank">10.1142/9789814401531_0036</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Chuanqing GU(#). </div>
-          <div class="title">A new modified King-Werner method solving nonlinear equations.</div>
-          <div class="meta-row">
-            <div>2011 IEEE 3rd International Conference on Communication Software and Networks (ICCSN 2011). <strong>2011.05</strong>, p. 486-489</div>
-           <div>DOI: <a href="https://doi.org/10.1109/ICCSN.2011.6014615" class="muted" target="_blank">10.1109/ICCSN.2011.6014615</a></div>
-<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang MA. </div>
-          <div class="title">Semilocal convergence for a fifth-order Newton's method using recurrence relations in Banach spaces.</div>
-          <div class="meta-row">
-            <div>Journal of Applied Mathematics. <strong>2011</strong>, Vol. 2011 p. 15 Pages</div>
-           <div>DOI: <a href="https://doi.org/10.1155/2011/786306" class="muted" target="_blank">10.1155/2011/786306</a></div>
-<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
-          <div class="title">A new modified King-Werner method for solving nonlinear equations.</div>
-          <div class="meta-row">
-            <div>Computers and Mathematics with Applications. <strong>2011</strong>, Vol. 62, No. 10 p. 3700-3705</div>
-           <div>DOI: <a href="https://doi.org/10.1016/j.camwa.2011.09.012" class="muted" target="_blank">10.1016/j.camwa.2011.09.012</a></div>
-<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, Min ZHANG, <strong>Liang CHEN</strong>. </div>
-          <div class="title">The Convergence Mechanism of Implementation under Two-thirds Bisimulation.</div>
-          <div class="meta-row">
-            <div>Journal of Information and Computational Science. <strong>2011</strong>, Vol. 8, No. 13, p. 2875-2884 </div>
-           <div>DOI: <a href="https://www.engineeringvillage.com/share/document.url?mid=cpx_535b581345c9be4b8M4a012061377553&database=cpx&view=abstract" class="muted" target="_blank">URL</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Yanfang MA, Min ZHANG, Yixiang CHEN, <strong>Liang CHEN</strong>. </div>
-          <div class="title">Two-thirds simulation indexes and modal logic characterization.</div>
-          <div class="meta-row">
-            <div>Frontiers of Computer Science in China. <strong>2011</strong>, Vol. 5, No. 4, p. 454-471</div>
-           <div>DOI: <a href="https://doi.org/10.1007/s11704-011-0140-9" class="muted" target="_blank">10.1007/s11704-011-0140-9</a></div>
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div>Chuanqing GU, <strong>Liang CHEN</strong>. </div>
-          <div class="title">A linear system expression for solving Padé problems.</div>
-          <div class="meta-row">
-            <div>Proceedings of the 14th Conference of International Linear Algebra Society.  <strong>2007</strong>, p. 31-34</div>
-           <div><a href="https://openlibrary.org/books/OL23394964M/Proceedings_of_the_14th_Conference_of_International_Linear_Algebra_Society" class="muted" target="_blank">URL</a></div>
-<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-
-        <li><div class="pub">
-          <div><strong>陈亮</strong>. </div>
-          <div class="title">Padé 逼近问题的数值代数求解.</div>
-          <div class="meta-row">
-            <div>绍兴文理学院学报(自然科学版).  <strong>2007</strong>, Vol. 27, No. 7, p. 20-23 </div>
-           <div><a href="https://kns.cnki.net/kcms2/article/abstract?v=cP5JN5wNT8D9bpCOunmaeJj8M8mAzcfE25xoksKCYiDPGSJnGR9KFOf89YtnLwcVTo-KRst6uWnztUs4kXSUaZBzfY1NQOll7GCgLV_pIKcXQ5HbPk4JatcSFzdpFCh1ONzg0ifGGCP12BZvnm5cqKtFAnDMCmWq-fUM1kB-5so=&uniplatform=NZKPT" class="muted" target="_blank">中国知网</a></div>
-<!--            <div><a href="#" class="muted">BibTeX</a></div>  -->
-          </div>
-        </div></li>
-        </ol>
-      </div>
-
-<!--      <div style="margin-top:12px">
-        <a href="#" class="muted">完整论文列表（Google Scholar / ORCID / 研究主页）</a>
-      </div>
--->
-    </section>
-
-    <section id="teachingproject" class="card" aria-labelledby="teachTitle">
-      <h2 id="teachTitle">教学研究项目</h2>
-      <div style="margin-top:12px">
-      <h3 id="teachTitle">省部级教学课题</h3>
+  </section>
+  <section id="publications" class="card" aria-labelledby="pubTitle">
+    <h2 id="pubTitle">科学研究论文</h2>
+    <p class="muted" style="margin-top:6px">已公开发表学术论文 40 余篇，其中 SCI/EI/ISTP/CSCD 检索论文 30 余篇。</p>
+    <div class="pub-list" id="pubList">
       <ul>
-        <li><div class="pub"><strong>“数智赋能”大学数学课程思政教学内容更新与教学方法改革研究（No. 2025JGYB026），</strong>
-               <div class="meta-row">江苏省 2025 年高等教育教改研究课题，2025.09-2027.08；</div></div></li>
-        <li><div class="pub"><strong>大学数学课程思政建设与应用（No. 23SX0313），</strong>
-               <div class="meta-row">中国高等教育学会 2023 年度高等教育科学研究规划课题，2024.01-2025.12；</div></div></li>
-        <li><div class="pub"><strong>应用型人才培养模式下的大学数学分层次教学的研究与实践（No. 2014ZDJY058），</strong>
-               <div class="meta-row">安徽省教育厅高等教育振兴计划（重大）教学改革研究项目，2015.01-2017.12。</div></div></li>
-      </ul>
-      </div>
-      <div style="margin-top:12px">
-      <h3 id="teachTitle">校级教学课题</h3>
-      <ul>
-       <li><div class="pub"><strong>基于课程思政的大学数学教育教学新业态探索（No. JGKT202511），</strong>
-               <div class="meta-row">常州工学院 2025 年校级本科教学建设项目教学改革研究课题，2025.09-2027.08；</div></div></li>
-       <li><div class="pub"><strong>“数学分析”课程思政教学团队（No. SZTD202406），</strong>
-               <div class="meta-row">常州工学院 2024 年校级本科教学建设类项目，2024.09-2026.08；</div></div></li>
-       <li><div class="pub"><strong>“数学分析”课程建设（混合式“金课”）（No. JK2023-9），</strong>
-               <div class="meta-row">常州工学院 2023 年度教学建设项目，2023.09-2025.12；</div></div></li>
-       <li><div class="pub"><strong>“数据科学与大数据技术”示范专业建设点（No. 30120300100-23-yb-sfzy05），</strong>
-               <div class="meta-row">常州工学院 2023 年度“课程思政”建设项目，2023.09-2025.08；</div></div></li>
-       <li><div class="pub"><strong>“高等数学”示范课建设项目（No. 30120300100-22-sfk19），</strong>
-               <div class="meta-row">常州工学院 2022 年度“课程思政”建设项目，2022.01-2022.12；</div></div></li>
-       <li><div class="pub"><strong>大学数学课程融入课程思政的探索与研究（No. 2020XJXYJ021），</strong>
-               <div class="meta-row">淮北师范大学教学研究（重点）项目，2021.01-2022.12；</div></div></li>
-        <li><div class="pub"><strong>高等数学精品课程建设的研究与实践（No. 800391），</strong>
-               <div class="meta-row">淮北师范大学教学研究项目，2007.01-2008.12。</div></div></li>
-      </ul>
-      </div>
-    </section>
-
-	  <section id="teachingpub" class="card" aria-labelledby="pubTitle">
-      <h2 id="pubTitle">教学研究论文</h2>
-      <div class="pub-list" id="pubList">
-		  
-<!--
-        <ol>
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 黄星, 马艳芳.</div>
-          <div class="title">数字化赋能大学数学课程思政教学改革.</div>
-          <div class="meta-row">
-            <div>创新教育研究. <strong>2025</strong>, Vol. 13, No. 2, p. 284-290. </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ces.2025.132117" class="muted" target="_blank">10.12677/ces.2025.132117</a></div>
-          </div>
-        </div></li>
-			
-         <li><div class="pub">
-          <div>马艳芳，<strong>陈亮</strong>.</div>
-          <div class="title">软件工程专业双语教学课程建设的研究与实践.</div>
-          <div class="meta-row">
-            <div>教育进展. <strong>2025</strong>, Vol. 15, No. 12, p. 440-445. </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2025.15122299" class="muted" target="_blank">10.12677/ae.2025.15122299</a></div>
-          </div>
-        </div></li>
-			 
-		<li><div class="pub">
-          <div>黄星, 刘蒋巍, <strong>陈亮</strong>.</div>
-          <div class="title">一道 2024 考研数学题的源与流的探讨.</div>
-          <div class="meta-row">
-            <div>高等数学研究. <strong>2025</strong>, Vol. 28, No. 06, p. 64-66+69. </div>
-          </div>
-        </div></li>
-			
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 马艳芳.</div>
-          <div class="title">基于课程思政的大学数学课程教学改革.</div>
-          <div class="meta-row">
-            <div>教育进展. <strong>2024</strong>, Vol. 14, No. 9, p. 532-539. </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2024.1491691" class="muted" target="_blank">10.12677/ae.2024.1491691</a></div>
-
-          </div>
-        </div></li>
-			
-         <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>, 胡智喜.</div>
-          <div class="title">新工科背景下《算法设计与分析》课程思政教学设计研究.</div>
-          <div class="meta-row">
-            <div>教育进展. <strong>2024</strong>, Vol. 14, No. 11, p. 1-7. </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2024.14112012" class="muted" target="_blank">10.12677/ae.2024.14112012</a></div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>赵颖, 李应华, <strong>陈亮</strong>.</div>
-          <div class="title">中学数学课程“大班授课, 小班讨论”教学模式的探讨.</div>
-          <div class="meta-row">
-            <div>数学教学研究. <strong>2022</strong>, Vol. 41, No. 1, p. 53-57. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 赵杰.</div>
-          <div class="title">R<sup>2</sup> 上实数完备性定理的证明.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2019</strong>, Vol. 40, No. 4, p. 83-86. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>赵杰, <strong>陈亮</strong>.</div>
-          <div class="title">柯西收敛准则证明的一个新思路.</div>
-          <div class="meta-row">
-            <div>职大学报. <strong>2019</strong>, No. 6, p. 78-79. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>马艳芳, 于春红, <strong>陈亮</strong>.</div>
-          <div class="title">以计算思维为导向的计算机专业人才培养模式.</div>
-          <div class="meta-row">
-            <div>科技展望. <strong>2017</strong>, Vol. 27, No. 21, p. 269. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>.</div>
-          <div class="title">应用型人才培养模式下的大学数学分层次教学.</div>
-          <div class="meta-row">
-            <div>科技展望. <strong>2016</strong>,  Vol. 26, No. 32, p. 183. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>.</div>
-          <div class="title">应用型人才培养模式下高等数学分类分层教学改革的探索.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 4, p. 75-79. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 杜翠真, 高勤.</div>
-          <div class="title">实对称矩阵对角化中正交矩阵的初等变换求法.</div>
-          <div class="meta-row">
-            <div>大学数学. <strong>2016</strong>, Vol. 32, No. 4, p. 68-72. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 马艳芳.</div>
-          <div class="title">应用 Mathematica 软件解决两类矩阵问题.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 1, p. 83-85. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>.</div>
-          <div class="title">基于任务驱动的离散数学实验教学研究.</div>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2015</strong>, Vol. 36, No. 2, p. 70-74. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>.</div>
-          <div class="title">计算思维在离散数学中的应用.</div>
-          <div class="meta-row">
-            <div>湖州师范学院学报. <strong>2015</strong>, Vol. 37, No. 2, p. 104-108. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 马艳芳, 张云, 陈冬君.</div>
-          <div class="title">微积分中积分一般概念的教学.</div>
-          <div class="meta-row">
-            <div>长春教育学院学报. <strong>2011</strong>, Vol. 27, No. 5, p. 112-113. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>马艳芳, <strong>陈亮</strong>.</div>
-          <div class="title">计算机基础教学中学生自主学习能力的培养.</div>
-          <div class="meta-row">
-            <div>淮海工学院学报. <strong>2011</strong>, Vol. 9, No. 10, p. 77-79. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 王超.</div>
-          <div class="title">基于常见问题集 FAQ 的智能答疑系统.</div>
-          <div class="meta-row">
-            <div>福建电脑. <strong>2007</strong>, No. 7, p. 139-140. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div><strong>陈亮</strong>, 张帆.</div>
-          <div class="title">线性方程组理论在初等数学教学中的应用.</div>
-          <div class="meta-row">
-            <div>湖州职业技术学院学报. <strong>2007</strong>, Vol. 3, No. 3, p. 82-84. </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <div>许绍元, <strong>陈亮</strong>.</div>
-          <div class="title">在《实变函数》课程教学中培养学生科研能力的体会.</div>
-          <div class="meta-row">
-            <div>淮北煤师院学报(自然科学版). <strong>2003</strong>, Vol. 24, No. 2, p. 53-56. </div>
-          </div>
-        </div></li>
-        </ol>
--->
-
-        <ol>
-         <li><div class="pub">
-<strong>陈亮</strong>, 黄星, 马艳芳. <strong>数字化赋能大学数学课程思政教学改革. </strong>
-          <div class="meta-row">
-            <div>创新教育研究. <strong>2025</strong>, Vol. 13, No. 2, p. 284-290 </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ces.2025.132117" class="muted" target="_blank">10.12677/ces.2025.132117</a></div>
-</div>
-        </div></li>
-			
-         <li><div class="pub">
-          马艳芳，<strong>陈亮</strong>. <strong>软件工程专业双语教学课程建设的研究与实践. </strong>
-          <div class="meta-row">
-			  <div>教育进展. <strong>2025</strong>, Vol. 15, No. 12, p. 440 </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2025.15122299" class="muted" target="_blank">10.12677/ae.2025.15122299</a></div>
-          </div>
-        </div></li>
-			 
-		<li><div class="pub">
-          黄星, 刘蒋巍, <strong>陈亮</strong>. <strong>一道 2024 考研数学题的源与流的探讨. </strong>
-          <div class="meta-row">
-            <div>高等数学研究. <strong>2025</strong>, Vol. 28, No. 06, p. 64-66+69 </div>
-          </div>
-        </div></li>
-			
-         <li><div class="pub">
-          <strong>陈亮</strong>, 马艳芳. <strong>基于课程思政的大学数学课程教学改革. </strong>
-          <div class="meta-row">
-            <div>教育进展. <strong>2024</strong>, Vol. 14, No. 9, p. 532-539 </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2024.1491691" class="muted" target="_blank">10.12677/ae.2024.1491691</a></div>
-          </div>
-        </div></li>
-			
-         <li><div class="pub">
-          马艳芳, <strong>陈亮</strong>, 胡智喜. <strong>新工科背景下《算法设计与分析》课程思政教学设计研究. </strong>
-          <div class="meta-row">
-            <div>教育进展. <strong>2024</strong>, Vol. 14, No. 11, p. 1-7 </div>
-            <div>DOI: <a href="https://doi.org/10.12677/ae.2024.14112012" class="muted" target="_blank">10.12677/ae.2024.14112012</a> </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          赵颖, 李应华, <strong>陈亮</strong>. <strong>中学数学课程“大班授课, 小班讨论”教学模式的探讨. </strong>
-          <div class="meta-row">
-            <div>数学教学研究. <strong>2022</strong>, Vol. 41, No. 1, p. 53-57 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 赵杰. <strong>R<sup>2</sup> 上实数完备性定理的证明. </strong>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2019</strong>, Vol. 40, No. 4, p. 83-86 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          赵杰, <strong>陈亮</strong>. <strong>柯西收敛准则证明的一个新思路. </strong>
-          <div class="meta-row">
-            <div>职大学报. <strong>2019</strong>, No. 6, p. 78-79  </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          马艳芳, 于春红, <strong>陈亮</strong>. <strong>以计算思维为导向的计算机专业人才培养模式. </strong>
-          <div class="meta-row">
-            <div>科技展望. <strong>2017</strong>, Vol. 27, No. 21, p. 269 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>. <strong>应用型人才培养模式下的大学数学分层次教学. </strong>
-          <div class="meta-row">
-            <div>科技展望. <strong>2016</strong>,  Vol. 26, No. 32, p. 183 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-         <strong>陈亮</strong>. <strong>应用型人才培养模式下高等数学分类分层教学改革的探索. </strong>
-          <div class="meta-row">
-           <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 4, p. 75-79 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 杜翠真, 高勤. <strong>实对称矩阵对角化中正交矩阵的初等变换求法. </strong>
-          <div class="meta-row">
-            <div>大学数学. <strong>2016</strong>, Vol. 32, No. 4, p. 68-72 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 马艳芳. <strong>应用 Mathematica 软件解决两类矩阵问题. </strong>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 1, p. 83-85 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          马艳芳, <strong>陈亮</strong>. <strong>基于任务驱动的离散数学实验教学研究. </strong>
-          <div class="meta-row">
-            <div>淮北师范大学学报(自然科学版). <strong>2015</strong>, Vol. 36, No. 2, p. 70-74 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          马艳芳, <strong>陈亮</strong>. <strong>计算思维在离散数学中的应用. </strong>
-          <div class="meta-row">
-            <div>湖州师范学院学报. <strong>2015</strong>, Vol. 37, No. 2, p. 104-108 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 马艳芳, 张云, 陈冬君. <strong>微积分中积分一般概念的教学. </strong>
-          <div class="meta-row">
-             <div>长春教育学院学报. <strong>2011</strong>, Vol. 27, No. 5, p. 112-113 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          马艳芳, <strong>陈亮</strong>. <strong>计算机基础教学中学生自主学习能力的培养. </strong>
-          <div class="meta-row">
-            <div>淮海工学院学报. <strong>2011</strong>, Vol. 9, No. 10, p. 77-79 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 王超. <strong>基于常见问题集 FAQ 的智能答疑系统. </strong>
-          <div class="meta-row">
-            <div>福建电脑. <strong>2007</strong>, No. 7, p. 139-140 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          <strong>陈亮</strong>, 张帆. <strong>线性方程组理论在初等数学教学中的应用. </strong>
-          <div class="meta-row">
-            <div>湖州职业技术学院学报. <strong>2007</strong>, Vol. 3, No. 3, p. 82-84 </div>
-          </div>
-        </div></li>
-
-         <li><div class="pub">
-          许绍元, <strong>陈亮</strong>. <strong>在《实变函数》课程教学中培养学生科研能力的体会. </strong>
-          <div class="meta-row">
-			  <div>淮北煤师院学报(自然科学版). <strong>2003</strong>, Vol. 24, No. 2, p. 53-56.</div> 
-			 </div>
-        </div></li>
-        </ol>
-
-      </div>
-    </section>
-	  
-	  
-    <section id="cv" class="card" aria-labelledby="cvTitle">
-      <h2 id="cvTitle">硕士研究生</h2>
-<!--      <p class="muted" style="margin-top:8px">下载最新 CV、获取完整论文列表或数据/代码仓库链接。</p>
-      <div style="display:flex;gap:10px;margin-top:10px">
-        <a class="btn" href="#" id="cvDownloadBtn">下载 PDF 简历</a>
-        <a class="btn" href="#" id="dataRepo">代码 / 数据仓库</a>
-      </div>  -->
-      
-      <h3>专业型硕士</h3>
-      <div style="margin-top:12px">
-        <ul class="muted" style="margin-top:8px">
-          <li><div class="pub"><strong>陈冠勋</strong>，人工智能专业，2025.09 -</div></li>
-          <li><div class="pub"><strong>李应华</strong>，学科教学（数学）专业，2020.09-2022.06，毕业去向：淮北理工学院<div class="meta-row">毕业论文：基于 GeoGebra 的初中函数教学实践研究</div></div></li>
-          <li><div class="pub"><strong>赵&nbsp;&nbsp;&nbsp;&nbsp;颖</strong>，学科教学（数学）专业，2020.09-2022.06，毕业去向：济宁市高级职业学校<div class="meta-row">毕业论文：深度教学视野下高中数学教材分析的策略研究</div></div></li>
-          <li><div class="pub"><strong>叶金鑫</strong>，学科教学（数学）专业，2018.09-2020.06，毕业去向：安徽省天长中学<div class="meta-row">毕业论文：指向数据分析核心素养的教学设计研究（合作指导教师：张昆）</div></div></li>
-          <li><div class="pub"><strong>孟&nbsp;&nbsp;&nbsp;&nbsp;莹</strong>，学科教学（数学）专业，2018.09-2020.06，毕业去向：山东省汶上县第一中学<div class="meta-row">毕业论文：数学教学设计中“初始问题”提出方法的研究（合作指导教师：张昆）</div></div></li>
-          <li><div class="pub"><strong>黄亚青</strong>，学科教学（数学）专业，2017.06-2019.06，毕业去向：福建省南平剑津中学<div class="meta-row">毕业论文：诱发学生审美意向的数学高考解题教学研究（合作指导教师：张昆）</div></div></li>
-        </ul>
-      </div>
-	<h3>学术型硕士</h3>
-      <div style="margin-top:12px">
-        <ul class="muted" style="margin-top:8px">
-          <li><div class="pub"><strong>伍珍香</strong>，计算数学专业，2019.09-2022.06，毕业去向：安徽信息工程学院<div class="meta-row">毕业论文：两种改进的 Levenberg-Marquardt 方法及其应用</div></div></li>
-          <li><div class="pub"><strong>周&nbsp;&nbsp;&nbsp;&nbsp;童</strong>，计算数学专业，2019.09-2022.06，毕业去向：淮南高新区山南第四中学<div class="meta-row">毕业论文：一种自适应 Levenberg-Marquardt 方法及其收敛性分析</div></div></li>
-          <li><div class="pub"><strong>苏晨诚</strong>，计算数学专业，2014.09-2017.06，毕业去向：合肥市长江路第二小学<div class="meta-row">毕业论文：求解非线性方程组的新的 Levenberg-Marquardt 算法及其理论分析</div></div></li>
-        </ul>
-      </div>
-    </section>
-
-
-    <section id="teaching" class="card" aria-labelledby="teachTitle">
-      <h2 id="teachTitle">教学情况</h2>
-      <div style="margin-top:12px">
-        <h3>本科课程</h3>
-		  <strong>常州工学院</strong>
-        <ul class="muted" style="margin-top:8px">
-          <li><div class="pub">数学分析Ⅰ</div>
-            <ul>
-                <li>2024-2025 学年第 1 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80 人，64 学时。</li>
-            </ul></li>
-          <li><div class="pub">数学分析Ⅱ</div>
-            <ul>
-                <li>2021-2022 学年第 2 学期，2021 级，数据科学与大数据技术专业，21 大数据，43 人；</li>
-                <li>2022-2023 学年第 2 学期，2022 级，数据科学与大数据技术专业，22 大数据，40 人；应用统计学专业，22 统计一、二，72 人，96 学时（合班）；</li>
-                <li>2023-2024 学年第 2 学期，2023 级，数学与应用数学（金融数学方向）专业，23 应数一、23 应数二，72 人，96 学时；</li>
-                <li>2024-2025 学年第 2 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80人，96 学时。</li>
-            </ul></li>
-          <li><div class="pub">数学分析Ⅲ</div>
-            <ul>
-                <li>2022-2023 学年第 1 学期，2021 级，数据科学与大数据技术专业，21 大数据，43 人；应用统计学专业，21 统计一、二，70 人，64 学时（合班）；</li>
-				<li>2022-2023 学年第 1 学期，2021 级，数学与应用数学（金融数学方向）专业，21 数学一、二，69 人，64 学时；</li>
-                <li>2023-2024 学年第 1 学期，2022 级，数据科学与大数据技术专业，22 大数据，40 人；应用统计学专业，22 统计一、二，72 人，64 学时（合班）；</li>
-                <li>2024-2025 学年第 1 学期，2023 级，数学与应用数学（金融数学方向）专业，23 应数一、23 应数二，70 人，64 学时；</li>
-                <li>2025-2026 学年第 1 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80 人，80 学时。</li>
-            </ul></li>
-			<li><div class="pub">最优化理论与算法</div>
-               <ul>
-                 <li>2023-2024 学年第 1 学期，2020 级，数据科学与大数据技术专业，20 大数据，41 人，32 学时。</li>
-				 <li>2024-2025 学年第 1 学期，2021 级，数据科学与大数据技术专业，21 大数据，40 人，32 学时。</li>
-				 <li>2025-2026 学年第 1 学期，2022 级，数据科学与大数据技术专业，22 大数据，43 人，32 学时。</li>
-               </ul></li>
-          <li><div class="pub">概率论与数理统计</div>
-               <ul>
-                 <li>2021-2022 学年第 1 学期，2020 级，电气工程及其自动化专业，20 电一、二、三班，134 人，48 学时。</li>
-               </ul></li>
-          <li><div class="pub">概率论</div>
-               <ul>
-                 <li>2021-2022 学年第 1 学期，2020 级，新能源科学与工程专业，20 能源一、二、三、四班，159 人，32 学时。</li>
-               </ul></li>
-          <li><div class="pub">线性代数</div>
-               <ul>
-                 <li>2021-2022 学年第 2 学期，2021 级，电子信息工程专业，21 信一、二、三、四班，159 人，32 学时。</li>
-				 <li>2024-2025 学年第 2 学期，2024 级，工商管理专业，24 管一、二；资源循环科学与工程专业，24 资环一、二，154 人，32 学时。</li>
-               </ul></li>
-          <li><div class="pub">人工智能数学基础</div>
-               <ul>
-				   <li>2025-2026 学年第 1 学期，2024 级，（科创学院）电气工程及其自动化专业，14 人，16 学时（第 9 章 大规模矩阵分解；第 10 章 迭代优化方法）</li>
-               </ul></li>
-          <li><div class="pub">毕业论文</div>
-               <ul>
-                 <li>2022-2023 学年第 2 学期，2019 级（2023 届），数学与应用数学（金融数学方向）专业，7 人</li>
-				 <li>2023-2024 学年第 2 学期，2020 级（2024 届），数据科学与大数据技术专业，5 人</li>
-				 <li>2024-2025 学年第 2 学期，2021 级（2025 届），数据科学与大数据技术专业，7 人</li>
-               </ul></li>
-	    </ul>
-		  <strong>淮北师范大学</strong>
-        <ul class="muted" style="margin-top:8px">
-          <li><div class="pub">数学分析 1</div>
-               <ul>
-                 <li>2014-2015 学年第 1 学期，2014 级，统计学专业，2 班，75 人，96 学时；</li>
-                 <li>2016-2017 学年第 1 学期，2016 级，统计学专业，99 人，96 学时；</li>
-                 <li>2017-2018 学年第 1 学期，2017 级，金融数学专业，93 人，96 学时；</li>
-               </ul></li>
-          <li><div class="pub">数学分析 2</div>
-               <ul>
-                 <li>2014-2015 学年第 2 学期，2014 级，统计学专业，2 班，72 人，108 学时；</li>
-                 <li>2016-2017 学年第 2 学期，2016 级，统计学专业，101 人，108 学时；</li>
-                 <li>2017-2018 学年第 2 学期，2017 级，金融数学专业，99 人，108 学时；</li>
-               </ul></li>
-          <li><div class="pub">数学分析 3</div>
-               <ul>
-                 <li>2015-2016 学年第 1 学期，2014 级，统计学专业，2 班，72 人，108 学时；</li>
-                 <li>2017-2018 学年第 1 学期，2016 级，统计学专业，101 人，108 学时；</li>
-                 <li>2018-2019 学年第 1 学期，2017 级，统计学专业，91 人，108 学时；</li>
-                 <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，99 人，108 学时；</li>
-               </ul></li>
-          <li><div class="pub">数值计算方法</div>
-               <ul>
-                 <li>2008-2009 学年第 1 学期，2006 级，信息与计算科学专业，91 人，54 学时；</li>
-               </ul></li>
-          <li><div class="pub">运筹学</div>
-               <ul>
-                 <li>2013-2014 学年第 1 学期，2012 级，信息管理与系统专业，56 人，54 学时；</li>
-               </ul></li>
-          <li><div class="pub">运筹与优化</div>
-               <ul>
-                 <li>2018-2019 学年第 2 学期，2017 级，统计学专业，91 人，48 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学一 / 高等数学 A1</div>
-               <ul>
-                 <li>2008-2009 学年第 1 学期，2008 级，物理学类专业，2 班，95 人，78 学时；</li>
-                 <li>2008-2009 学年第 1 学期，2008 级，电气信息类专业，2 班，85 人，78 学时；</li>
-                 <li>2013-2014 学年第 1 学期，2013 级，数字媒体技术专业，74 人，78 学时；</li>
-                 <li>2015-2016 学年第 1 学期，2015 级，信息安全专业，78 学时；</li>
-                 <li>2015-2016 学年第 1 学期，2015 级，（计算机学院）提高班，78 学时；</li>
-<!--
-               </ul></li>
-          <li><div class="pub">高等数学 A1</div>
-               <ul>
--->
-                 <li>2016-2017 学年第 1 学期，2016 级，物理学（师范）专业，78 学时；</li>
-                 <li>2020-2021 学年第 1 学期，2020 级，材料科学与工程专业，69 人，78 学时；</li>
-                 <li>2020-2021 学年第 1 学期，2020 级，物理学（师范）专业，79 人，78 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学二 / 高等数学 A2</div>
-               <ul>
-                 <li>2008-2009 学年第 2 学期，2008 级，物理学类专业，2 班，95 人，102 学时；</li>
-                 <li>2008-2009 学年第 2 学期，2008 级，电气信息类专业，2 班，85 人，102 学时；</li>
-                 <li>2009-2010 学年第 2 学期，2009 级，计算机科学与技术（师范）专业，106 人，102 学时；</li>
-                 <li>2009-2010 学年第 2 学期，2009 级，物理学专业，1 班，73 人，102 学时；</li>
-                 <li>2011-2012 学年第 2 学期，2011 级，物理学专业，2 班，85 人，102 学时；</li>
-                 <li>2013-2014 学年第 2 学期，2013 级，数字媒体技术专业，74 人，102 学时；</li>
-                 <li>2015-2016 学年第 2 学期，2015 级，信息安全专业，102 学时；</li>
-                 <li>2015-2016 学年第 2 学期，2015 级，（计算机学院）提高班，102 学时；</li>
-<!--
-               </ul></li>
-          <li><div class="pub">高等数学 A2</div>
-               <ul>
--->
-                 <li>2016-2017 学年第 2 学期，2016 级，物理学（师范）专业，102 学时；</li>
-                 <li>2020-2021 学年第 2 学期，2020 级，物理学（师范）专业，92 人，102 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学</div>
-               <ul>
-                 <li>2008-2009 学年第 1 学期，2008 级，公共事业管理（师范）专业，90 人，96 学时；</li>
-
-               </ul></li>
-          <li><div class="pub">高等数学 C2</div>
-               <ul>
-                 <li>2017-2018 学年第 2 学期，2017 级，园艺专业，69 人，48 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学（上）</div>
-               <ul>
-                 <li>2013-2014 学年第 1 学期，2013 级，酒店管理专业，59 人，78 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学 (1)</div>
-               <ul>
-                 <li>2002-2003 学年第 1 学期，2002 级，化学专业，115 人，80 学时；</li>
-                 <li>2003-2004 学年第 1 学期，2003 级，化学专业，133 人，72 学时；</li>
-                 <li>2004-2005 学年第 1 学期，2004 级，化学专业，126 人，70 学时；</li>
-                 <li>2004-2005 学年第 1 学期，2004 级，网络工程专业，65 人，90 学时；</li>
-                 <li>2005-2006 学年第 1 学期，2005 级，网络工程专业，81 人，90 学时；</li>
-                 <li>2007-2008 学年第 1 学期，2007 级，物理学类专业，2 班，81 人，78 学时；</li>
-                 <li>2007-2008 学年第 1 学期，2007 级，电气信息类专业，1 班，95 人，78 学时；</li>
-               </ul></li>
-          <li><div class="pub">高等数学 (2)</div>
-               <ul>
-                 <li>2002-2003 学年第 2 学期，2002 级，化学专业，115 人，54 学时；</li>
-                 <li>2003-2004 学年第 2 学期，2003 级，化学专业，133 人，72 学时；</li>
-                 <li>2004-2005 学年第 2 学期，2004 级，化学专业，126 人，56 学时；</li>
-                 <li>2004-2005 学年第 2 学期，2004 级，网络工程专业，65 人，90 学时；</li>
-                 <li>2006-2007 学年第 2 学期，2006 级，电子信息工程专业，85 人，112 学时；</li>
-                 <li>2006-2007 学年第 2 学期，2006 级，应用化学专业，75 人，58 学时；</li>
-                 <li>2018-2019 学年第 2 学期，2018 级，人力资源管理专业（信息学院），1 班，66 人，58 学时；</li>
-               </ul></li>
-          <li><div class="pub">经济数学 (2)</div>
-               <ul>
-                 <li>2001-2002 学年第 2 学期，2001 级，思想政治教育专业，36 学时；</li>
-               </ul></li>
-          <li><div class="pub">线性代数</div>
-               <ul>
-                 <li>2004-2005 学年第 1 学期，2004 级，计算机技术（师范类）专业，122 人，64 学时；</li>
-                 <li>2005-2006 学年第 1 学期，2005 级，电子商务专业，85 人，64 学时；</li>
-                 <li>2005-2006 学年第 1 学期，2005 级，电子科学与技术专业，122 人，64 学时；</li>
-                 <li>2006-2007 学年第 2 学期，2006 级，经济学专业，115 人，48 学时；</li>
-                 <li>2007-2008 学年第 1 学期，2007 级，电气信息类专业，1 班，100 人，54 学时；</li>
-                 <li>2007-2008 学年第 1 学期，2007 级，电子商务专业，74 人，54 学时；</li>
-                 <li>2009-2010 学年第 1 学期，2009 级，计算机科学与技术专业，79 人，54 学时；</li>
-                 <li>2009-2010 学年第 1 学期，2009 级，电气信息类专业，2 班，84 人，54 学时；</li>
-                 <li>2011-2012 学年第 2 学期，2011 级，会计学专业，95 人，48 学时；</li>
-                 <li>2011-2012 学年第 2 学期，2011 级，经济学专业，89 人，48 学时；</li>
-                 <li>2014-2015 学年第 1 学期，2013 级，生物工程专业，1 班，86 人，54 学时；</li>
-                 <li>2014-2015 学年第 1 学期，2013 级，生物工程专业，2 班，87 人，54 学时；</li>
-                 <li>2014-2015 学年第 2 学期，2014 级，应用化学专业，49 人，48 学时；</li>
-               </ul></li>
-          <li><div class="pub">课件制作</div>
-               <ul>
-                 <li>2002-2003 学年第 2 学期，2000 级，数学与应用数学专业，34 + 18 （上机）学时；</li>
-                 <li>2002-2003 学年第 2 学期，2002 级，数学与应用数学（专升本）专业，34 + 18 （上机）学时；</li>
-                 <li>2003-2004 学年第 2 学期，2003 级，数学与应用数学（专升本）专业，34 + 18 （上机）学时；</li>
-               </ul></li>
-          <li><div class="pub">实变函数</div>
-               <ul>
-                 <li>2001-2002 学年第 1 学期，1999 级，数学与应用数学专业，180 人，54 学时（主讲教师：许绍元）</li>
-                 <li>2002-2003 学年第 1 学期，2000 级，数学与应用数学专业，1 班，54 学时（主讲教师：李雷）</li>
-               </ul></li>
-          <li><div class="pub">毕业论文</div>
-               <ul>
-                 <li>2002-2003 学年第 2 学期，1999 级，数学与应用数学专业，4 人；</li>
-                 <li>2003-2004 学年第 2 学期，2000 级，数学与应用数学专业，4 人；</li>
-                 <li>2004-2005 学年第 2 学期，2001 级，数学与应用数学专业，4 人；</li>
-                 <li>2008-2009 学年第 2 学期，2005 级，数学与应用数学专业，10 人（信息学院 7 人）；</li>
-                 <li>2009-2010 学年第 2 学期，2006 级，数学与应用数学专业，11 人（信息学院 2 人）；</li>
-                 <li>2013-2014 学年第 2 学期，2010 级，数学与应用数学专业，9 人（信息学院）；</li>
-                 <li>2014-2015 学年第 2 学期，2011 级，数学与应用数学专业，12 人（信息学院）；</li>
-                 <li>2015-2016 学年第 2 学期，2012 级，统计学专业，12 人；</li>
-                 <li>2016-2017 学年第 2 学期，2013 级，数学与应用数学专业，9 人；</li>
-                 <li>2017-2018 学年第 2 学期，2014 级，统计学专业，11 人；金融数学专业，3 人（成果代替）；</li>
-                 <li>2018-2019 学年第 2 学期，2015 级，数学与应用数学专业，8 人；</li>
-                 <li>2020-2021 学年第 2 学期，2017 级，数学与应用数学专业，7 人；统计学专业， 1 人（成果代替）；</li>
-               </ul></li>
-          <li><div class="pub">教育实习</div>
-               <ul>
-                 <li>2002-2003 学年第 1 学期，1999 级，数学与应用数学专业，8 人，实习地点：淮北市岱河矿高级中学；</li>
-                 <li>2003-2004 学年第 1 学期，2000 级，数学与应用数学专业，8 人，实习地点：淮北市岱河矿高级中学；</li>
-                 <li>2003-2004 学年第 1 学期，2002 级，数学与应用数学（专升本）专业，12 人，分散实习；</li>
-                 <li>2004-2005 学年第 1 学期，2001 级，数学与应用数学专业，8 人，实习地点：安徽省砀山中学；</li>
-                 <li>2004-2005 学年第 1 学期，2003 级，数学与应用数学（专升本）专业，12 人，分散实习；</li>
-                 <li>2005-2006 学年第 1 学期，2002 级，数学与应用数学专业，14 人，实习地点：安徽省萧县中学 8 人、萧县师范学校 6 人；</li>
-                 <li>2014-2015 学年第 1 学期，2011 级，数学与应用数学专业，10 人，实习地点：淮北市实验高级中学</li>
-                 <li>2020-2021 学年第 1 学期，2018 级，数学与应用数学专业，2 班，10 人（教育见习）</li>
-               </ul></li>
-          <li><div class="pub">微格教学</div>
-               <ul>
-                 <li>2002-2003 学年第 2 学期，2000 级，数学与应用数学专业，20 人；</li>
-                 <li>2003-2004 学年第 2 学期，2001 级，数学与应用数学专业，20 人；</li>
-                 <li>2004-2005 学年第 2 学期，2002 级，数学与应用数学专业，20 人；</li>
-                 <li>2006-2007 学年第 2 学期，2004 级，数学与应用数学专业，20 人；</li>
-               </ul></li>
-			<li><div class="pub">形势与政策六</div>
-               <ul>
-                 <li>2015-2016 学年第 1 学期，2013 级，统计学专业，99 人，16 学时；</li>
-                 <li>2015-2016 学年第 2 学期，2013 级，统计学专业，99 人，16 学时；</li>
-               </ul></li>
-          <li><div class="pub">社会责任教育</div>
-               <ul>
-                 <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，10 学时；</li>
-               </ul></li>
-          <li><div class="pub">社会责任教育实践</div>
-               <ul>
-                 <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，27 学时；</li>
-               </ul></li>
-          <li><div class="pub">创新创业教育实践</div>
-               <ul>
-                 <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，72 学时；</li>
-               </ul></li>
-        </ul>
-      <h3>研究生课程&nbsp; ——&nbsp;淮北师范大学</h3>
-        <ul>
-          <li><div class="pub">最优化理论与方法</div>
-               <ul>
-                 <li>2014-2015 学年第 2 学期，2014 级，计算数学专业，36 学时；</li>
-                 <li>2020-2021 学年第 1 学期，2019 级，计算数学专业，36 学时；</li>
-          </ul></li>
-          <li><div class="pub">数值最优化</div>
-               <ul>
-                 <li>2014-2015 学年第 2 学期，2014 级，计算数学专业，36 学时；</li>
-               </ul></li>
-          <li>
-            <div class="pub">计算方法 /&nbsp;数值分析</div>
-               <ul>
-                 <li>2017-2018 学年第 2 学期，2017 级，计算数学专业，36 学时；</li>
-<!--
-               </ul></li>
-          <li><div class="pub">数值分析</div>
-               <ul>   
--->
-                 <li>2018-2019 学年第 1 学期，2017 级，计算数学专业，36 学时；</li>
-               </ul></li>
-          <li><div class="pub">科学计算</div>
-               <ul>
-                 <li>2020-2021 学年第 2 学期，2020 级，计算数学专业，36 学时；</li>
-               </ul></li>
-        </ul>
-       <h3>成人教育&nbsp; ——&nbsp; 淮北师范大学</h3>
-      </div>
-    </section>
-
-    <section id="contact" class="card" aria-labelledby="contactTitle">
-      <h2 id="contactTitle">联系我</h2>
-      <p class="muted" style="margin-top:8px">欢迎通过邮件联系（请在标题中写明来意）。</p>
-
-<!--      <div style="margin-top:12px" class="contact-grid">
-        <form onsubmit="event.preventDefault(); sendMail()" style="display:grid;gap:8px">
-          <input id="name" type="text" placeholder="你的姓名" required />
-          <input id="email" type="email" placeholder="你的邮箱" required />
-          <textarea id="message" rows="4" placeholder="写点什么..." required></textarea>
-          <div style="display:flex;gap:8px">
-            <button class="btn" type="submit">发送邮件</button>
-            <a class="btn" href="mailto:your.email@example.com">发邮件</a>
-          </div>
-        </form> -->
-
-        <div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div><strong>Email</strong><div class="muted" style="margin-top:6px"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a> · <a href="mailto:chenliang1977@gmail.com">chenliang1977@gmail.com</a></div></div>
-            <div><strong>办公室</strong><div class="muted" style="margin-top:6px">玉衡楼 B519 · 常州工学院</div></div>
-            <div style="margin-top:6px">
-<!--              <strong>学术链接</strong>
-              <div class="muted" style="margin-top:6px">
-                <a href="#" id="scholarLink">Google Scholar</a> · <a href="#" id="orcidLink2">ORCID</a> · <a href="#" id="githubLink">GitHub</a>
-              </div> -->
+        <li>
+          <div class="pub">
+            <div>Yuan JIN, Guangyun XU, <strong>Liang CHEN</strong>(#).</div>
+            <div class="title">A New Hestenes–Stiefel-Type Conjugate Gradient Method for Large-Scale Unconstrained Optimization Problems.</div>
+            <div class="meta-row">
+              <div>International Journal of Applied and Computational Mathematics. <strong>2025</strong>, Vol. 11, No. 5, article number 218</div>
+              <div>DOI: <a href="https://doi.org/10.1007/s40819-025-02036-z" class="muted" target="_blank">10.1007/s40819-025-02036-z</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
             </div>
           </div>
-<!--        </div>-->
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
+            <div class="title">The Evolution Mechanism of Correctness for Cyber-Physical System.</div>
+            <div class="meta-row">
+              <div>International Journal of Software Engineering and Knowledge Engineering. <strong>2024</strong>, Vol. 34, No. 07
+                p. 1095-1134 </div>
+              <div>DOI: <a href="https://doi.org/10.1142/s0218194024500153" class="muted" target="_blank">10.1142/s0218194024500153</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
+            <div class="title">A modified Levenberg–Marquardt method for solving systems of nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Journal of Applied Mathematics and Computing. <strong>2023</strong>, Vol. 69, No. 2, p. 2019-2040</div>
+              <div>DOI: <a href="https://doi.org/10.1007/s12190-022-01823-x" class="muted" target="_blank">10.1007/s12190-022-01823-x</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
+            <div class="title">A New Modified Levenberg-Marquardt Method for Systems of Nonlinear Equations.</div>
+            <div class="meta-row">
+              <div>Journal of Mathematics. <strong>2023</strong>, Vol. 2023, p. 6043780</div>
+              <div>DOI: <a href="https://doi.org/10.1155/2023/6043780" class="muted" target="_blank">10.1155/2023/6043780</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Lin ZHENG, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
+            <div class="title">A variant of the Levenberg-Marquardt method with adaptive parameters for systems of nonlinear equations.</div>
+            <div class="meta-row">
+              <div>AIMS Mathematic. <strong>2022</strong>, Vol. 7, No. 1 p. 1241-1256</div>
+              <div>DOI: <a href="https://doi.org/10.3934/math.2022073" class="muted" target="_blank">10.3934/math.2022073</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Lin ZHENG, <strong>Liang CHEN</strong>, Yangxin TANG. </div>
+            <div class="title">Convergence rate of the modified Levenberg-Marquardt method under Hölderian local error bound.</div>
+            <div class="meta-row">
+              <div>Open Mathematics. <strong>2022</strong>, Vol. 20, No. 1 p. 998-1012</div>
+              <div>DOI: <a href="https://doi.org/10.1515/math-2022-0485" class="muted" target="_blank">10.1515/math-2022-0485</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, Xiaotong GAO, Wei ZHOU, <strong>Liang CHEN</strong>. </div>
+            <div class="title">The Trustworthiness Measurement Model of Component Based on Defects.</div>
+            <div class="meta-row">
+              <div>Mathematical Problems in Engineering. <strong>2022</strong>, Vol. 2022, Article ID 7290001, 15 pages </div>
+              <div>DOI: <a href="https://doi.org/10.1155/2022/7290001" class="muted" target="_blank">10.1155/2022/7290001</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Zhenxiang WU, Tong ZHOU, Lei LI, <strong>Liang CHEN</strong>(#), Yanfang MA. </div>
+            <div class="title">A New Modified Efficient Levenberg–Marquardt Method for Solving Systems of Nonlinear Equations.</div>
+            <div class="meta-row">
+              <div>Mathematical Problems in Engineering. <strong>2021</strong>, Vol. 2021 p. Article ID 5608195, 11 pages</div>
+              <div>DOI: <a href="https://doi.org/10.1155/2021/5608195" class="muted" target="_blank">10.1155/2021/5608195</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>周童，<strong>陈亮</strong>(#)，伍珍香. </div>
+            <div class="title">一种求解非线性方程组的Levenberg-Marquardt方法及其收敛性.</div>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2021</strong>,  Vol. 42, No. 01 p. 1-7</div>
+              <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA.</div>
+            <div class="title">An efficient m-step Levenberg-Marquardt method for systems of nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Journal of Computational Analysis and Applications. <strong>2020</strong>, Vol. 28, No. 3, p. 543-559</div>
+              <div><a href="https://www.eudoxuspress.com/index.php/pub/issue/view/18/17" class="muted" target="_blank">URL</a></div>
+              <!--               <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
+            <div class="title">Shamanskii-like Levenberg-Marquardt method with a new line search for systems of nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Journal of Systems Science and Complexity. <strong>2020</strong>, Vol. 33, No. 5, p. 1694-1707</div>
+              <div>DOI: <a href="https://doi.org/10.1007/s11424-020-9043-x" class="muted" target="_blank">10.1007/s11424-020-9043-x</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>伍珍香，<strong>陈亮</strong>(#)， 周童. </div>
+            <div class="title">一种改进的求解非线性方程组的Levenberg-Marquardt方法.</div>
+            <div class="meta-row">
+              <div>延边大学学报(自然科学版). <strong>2020</strong>, Vol. 46, No. 04 p. 302-307+332</div>
+              <div>DOI: <a href="https://doi.org/10.16379/j.cnki.issn.1004-4353.2020.04.004" class="muted" target="_blank">10.16379/j.cnki.issn.1004-4353.2020.04.004</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Mengyue WANG, Yanfang MA, Guanru LI, Wei ZHOU, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Multi-Value Models for Allocation of Software Component Development Costs Based on Trustworthiness.</div>
+            <div class="meta-row">
+              <div>IEEE Access. <strong>2020</strong>, Vol. 8, p. 122673-122684</div>
+              <div>DOI: <a href="https://doi.org/10.1109/ACCESS.2020.3007158" class="muted" target="_blank">10.1109/ACCESS.2020.3007158</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>马艳芳, 王梦月, 周伟, <strong>陈亮</strong>. </div>
+            <div class="title">基于可信性的模块化软件开发费用分配算法.</div>
+            <div class="meta-row">
+              <div>计算机工程与科学. <strong>2020</strong>, Vol. 42, No. 6, p. 1021-1029 </div>
+              <div>DOI: <a href="http://joces.nudt.edu.cn/CN/volumn/volumn_1428.shtml" class="muted" target="_blank">URL</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Mengyue WANG, Yanfang MA, Haiyu PAN, Hongwei TAO, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Trade-off Costs of Software Trustworthy Attributes.</div>
+            <div class="meta-row">
+              <div>International Journal of Performability Engineering. <strong>2019</strong>,  Vol. 15, No. 9, p. 2422-2431 </div>
+              <div>DOI: <a href="https://doi.org/10.23940/ijpe.19.09.p16.24222431" class="muted" target="_blank">10.23940/ijpe.19.09.p16.24222431</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Chen, Liang</strong>, Cuizhen DU, Yanfang MA. </div>
+            <div class="title">The higher-order Levenberg-Marquardt method with Armijo type line search for nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Optimization Methods and Software. <strong>2017</strong>, Vol. 32, No. 3 p. 516-533</div>
+              <div>DOI: <a href="https://doi.org/10.1080/10556788.2016.1225214" class="muted" target="_blank">10.1080/10556788.2016.1225214</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>苏晨诚，<strong>陈亮</strong>(#). </div>
+            <div class="title">求解非线性方程组的加速多步 Levenberg-Marquardt 算法.</div>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2017</strong>,  Vol. 38, No. 1 p. 24-30</div>
+              <div>URL: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=FMSB202101001&v=5KzWwgTOvhFSXuZIcRN6WdclCjoLta2%mmd2FQHWAn4E1Wj1te3NbT6Aips2ubqrmdDe4" class="muted" target="_blank">中国知网</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, <strong>Liang CHEN</strong>, Haiyu PAN. </div>
+            <div class="title">The Quantitative Analysis of Approximate Correctness for Real-Time Systems.</div>
+            <div class="meta-row">
+              <div>International Journal of Performability Engineering. <strong>2017</strong>, Vol. 13, No. 6, p. 886-896 </div>
+              <div>DOI: <a href="https://doi.org/10.23940/ijpe.17.06.p10.886896" class="muted" target="_blank">10.23940/ijpe.17.06.p10.886896</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>. </div>
+            <div class="title">A high-order modified Levenberg-Marquardt method for systems of nonlinear equations with fourth-order convergence.</div>
+            <div class="meta-row">
+              <div>Applied Mathematics and Computation. <strong>2016</strong>,  Vol. 285 p. 79-93</div>
+              <div>DOI: <a href="https://doi.org/10.1016/j.amc.2016.03.031" class="muted" target="_blank">10.1016/j.amc.2016.03.031</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>. </div>
+            <div class="title">A modified Levenberg-Marquardt method with line search for nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Computational Optimization and Applications. <strong>2016</strong>,  Vol. 65, No. 3 p. 753-779</div>
+              <div>DOI: <a href="https://doi.org/10.1007/s10589-016-9852-y" class="muted" target="_blank">10.1007/s10589-016-9852-y</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA, Chencheng SU. </div>
+            <div class="title">An efficient m-step Levenberg-Marquardt method for nonlinear equations.</div>
+            <div class="meta-row">
+              <div>ChinaXiv. <strong>2016</strong>, </div>
+              <div>ChinaXiv: <a href="https://www.chinaxiv.org/abs/201607.00035" class="muted" target="_blank">201607.00035</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Topological Constructions of Epsilon-Bisimulation.</div>
+            <div class="meta-row">
+              <div>Quantitative Logic and Soft Computing 2016: Proceedings of the 4th International Conference on Quantitative Logic and Soft Computing (QLSC2016) held at Hangzhou, China, 14-17 October. <strong>2016</strong> p. 213-223. 
+                DOI: <a href="https://doi.org/10.1007/978-3-319-46206-6_22" class="muted" target="_blank">10.1007/978-3-319-46206-6_22</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Probabilistic Model of Software Approximate Correctness.</div>
+            <div class="meta-row">
+              <div>Wuhan University Journal of Natural Sciences. <strong>2016</strong>, Vol. 21, No. 1, p. 47-55 </div>
+              <div>DOI: <a href="https://doi.org/10.1007/s11859-016-1137-x" class="muted" target="_blank">10.1007/s11859-016-1137-x</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, <strong>Liang CHEN</strong>. </div>
+            <div class="title">The Quantitative Analysis of Interaction between Software and Environment.</div>
+            <div class="meta-row">
+              <div>2016 International Symposium on System and Software Reliability (ISSSR 2016). <strong>2016</strong>, p. 13-19 </div>
+              <div>DOI: <a href="https://doi.org/10.1109/ISSSR.2016.012" class="muted" target="_blank">10.1109/ISSSR.2016.012</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Lin ZHENG, Ke ZHANG, <strong>Liang CHEN</strong>. </div>
+            <div class="title">On the convergence of a modified Chebyshev-like's method for solving nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Taiwanese Journal of Mathematics. <strong>2015</strong>, Vol. 19, No. 1 p. 175-191</div>
+              <div>DOI: <a href="https://doi.org/10.11650/tjm.18.2014.3856" class="muted" target="_blank">10.11650/tjm.18.2014.3856</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>. </div>
+            <div class="title">Newton-Kantorovich type Theorem by Using Recurrence Relations for a Fifth-order Method in Banach Spaces.</div>
+            <div class="meta-row">
+              <div>Journal of Computational Analysis and Applications. <strong>2014</strong>, Vol. 17, No. 3 p. 486-497</div>
+              <!--                    <div><a href="http://www.eudoxuspress.com/244/JOCAAA-VOL-17-2014.pdf" class="muted" target="_blank">PDF</a></div>
+  <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>陈亮</strong>，顾传青，郑林. </div>
+            <div class="title">非线性方程的数值迭代法及其半局部收敛性.</div>
+            <div class="meta-row">
+              <div>数学进展. <strong>2014</strong>, Vol. 43, No. 4 p. 481-495</div>
+              <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqWAbTFTDNr-VQpIonfuHsrqNH8jDEFjEHF0V_xDxZz98w_mPfpVy9-VgCjLwMhF4f-RdbDxQO8wQkdF5l0hM9lq52m7QIfDK6rg9Chc6aHuiZ1oG5zv9MBhJx1Bin4xDyoh33lAWqVQSmH0_fi8dWv9zlBB492-wn42KbJ2Pt2f2w==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>马艳芳, <strong>陈亮</strong>. </div>
+            <div class="title">基于部分交互的软件近似度量模型.</div>
+            <div class="meta-row">
+              <div>计算机工程与应用. <strong>2014</strong>, Vol. 50, No. 24, p. 32-37 </div>
+              <div>DOI: <a href="http://cea.ceaj.org/CN/abstract/abstract32676.shtml" class="muted" target="_blank">URL</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>. </div>
+            <div class="title">A Family of Improved Secant-Like Method with Super-Linear Convergence.</div>
+            <div class="meta-row">
+              <div>International Journal of Mathematical and Computational Sciences. <strong>2013</strong>, Vol. 7, No. 4 p. 635 - 638</div>
+              <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang Ma. </div>
+            <div class="title">Recurrence relations for the Harmonic mean Newton's method in Banach spaces.</div>
+            <div class="meta-row">
+              <div>Journal of Computational Analysis and Applications. <strong>2013</strong>, Vol. 14, No. 6 p. 1154-1164</div>
+              <!--             <div>DOI: <a href="https://doi.org/10.5281/zenodo.1087896" class="muted" target="_blank">10.5281/zenodo.1087896</a></div>
+         <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>马艳芳, <strong>陈亮</strong>. </div>
+            <div class="title">基于交互的环境近似度量模型.</div>
+            <div class="meta-row">
+              <div>山东大学学报(理学版). <strong>2013</strong>,  Vol. 48, No. 7, p. 33-38 </div>
+              <div>DOI: <a href="https://doi.org/10.6040/j.issn.1671-9352.1.2013.09" class="muted" target="_blank">10.6040/j.issn.1671-9352.1.2013.09</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>马艳芳, <strong>陈亮</strong>. </div>
+            <div class="title">基于 ε-互模拟的软件近似正确性模型. </div>
+            <div class="meta-row">
+              <div>计算机工程与应用. <strong>2013</strong>, Vol. 49, No. 11, p. 15-19</div>
+              <div>DOI: <a href="https://doi.org/10.3778/j.issn.1002-8331.1211-0125" class="muted" target="_blank">10.3778/j.issn.1002-8331.1211-0125</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang Ma. </div>
+            <div class="title">A fourth-order iterative method for solving nonlinear equations.</div>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2012</strong>, Vol. 33, No. 1 p. 5-10</div>
+              <div>URL: <a href="https://kns.cnki.net/kcms2/article/abstract?v=VqE8_zhXCqXpqqri1h5KpJs2SgvGUkJ8whZx_8X6fbQBy132GniE8q4ZKdpCgmhkpXhT8aPylIuG6CBH4OqTGT5_Kp9EVUh5e6urYrtcLvy4ijXq0c5a2OKGE3xmA_-7RfX3J0oTnEN0Dzy5mca3WhPCHazi68ACGVKQHeKPMPvxWOHVVEeoYg==&uniplatform=NZKPT&language=CHS" class="muted" target="_blank">中国知网</a></div>
+              <!--        <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, Min ZHANG, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Infinite Evolution Mechanism of ε-Bisimilarity.</div>
+            <div class="meta-row">
+              <div>Quantitative Logic and Soft Computing 2012. <strong>2012</strong>, p. 252-259</div>
+              <div>DOI: <a href="https://doi.org/10.1142/9789814401531_0036" class="muted" target="_blank">10.1142/9789814401531_0036</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Chuanqing GU(#). </div>
+            <div class="title">A new modified King-Werner method solving nonlinear equations.</div>
+            <div class="meta-row">
+              <div>2011 IEEE 3rd International Conference on Communication Software and Networks (ICCSN 2011). <strong>2011.05</strong>, p. 486-489</div>
+              <div>DOI: <a href="https://doi.org/10.1109/ICCSN.2011.6014615" class="muted" target="_blank">10.1109/ICCSN.2011.6014615</a></div>
+              <!--            <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Chuanqing GU, Yanfang MA. </div>
+            <div class="title">Semilocal convergence for a fifth-order Newton's method using recurrence relations in Banach spaces.</div>
+            <div class="meta-row">
+              <div>Journal of Applied Mathematics. <strong>2011</strong>, Vol. 2011 p. 15 Pages</div>
+              <div>DOI: <a href="https://doi.org/10.1155/2011/786306" class="muted" target="_blank">10.1155/2011/786306</a></div>
+              <!--            <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>Liang CHEN</strong>, Yanfang MA. </div>
+            <div class="title">A new modified King-Werner method for solving nonlinear equations.</div>
+            <div class="meta-row">
+              <div>Computers and Mathematics with Applications. <strong>2011</strong>, Vol. 62, No. 10 p. 3700-3705</div>
+              <div>DOI: <a href="https://doi.org/10.1016/j.camwa.2011.09.012" class="muted" target="_blank">10.1016/j.camwa.2011.09.012</a></div>
+              <!--            <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, Min ZHANG, <strong>Liang CHEN</strong>. </div>
+            <div class="title">The Convergence Mechanism of Implementation under Two-thirds Bisimulation.</div>
+            <div class="meta-row">
+              <div>Journal of Information and Computational Science. <strong>2011</strong>, Vol. 8, No. 13, p. 2875-2884 </div>
+              <div>DOI: <a href="https://www.engineeringvillage.com/share/document.url?mid=cpx_535b581345c9be4b8M4a012061377553&database=cpx&view=abstract" class="muted" target="_blank">URL</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Yanfang MA, Min ZHANG, Yixiang CHEN, <strong>Liang CHEN</strong>. </div>
+            <div class="title">Two-thirds simulation indexes and modal logic characterization.</div>
+            <div class="meta-row">
+              <div>Frontiers of Computer Science in China. <strong>2011</strong>, Vol. 5, No. 4, p. 454-471</div>
+              <div>DOI: <a href="https://doi.org/10.1007/s11704-011-0140-9" class="muted" target="_blank">10.1007/s11704-011-0140-9</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div>Chuanqing GU, <strong>Liang CHEN</strong>. </div>
+            <div class="title">A linear system expression for solving Padé problems.</div>
+            <div class="meta-row">
+              <div>Proceedings of the 14th Conference of International Linear Algebra Society. <strong>2007</strong>, p. 31-34</div>
+              <div><a href="https://openlibrary.org/books/OL23394964M/Proceedings_of_the_14th_Conference_of_International_Linear_Algebra_Society" class="muted" target="_blank">URL</a></div>
+              <!--            <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub">
+            <div><strong>陈亮</strong>. </div>
+            <div class="title">Padé 逼近问题的数值代数求解.</div>
+            <div class="meta-row">
+              <div>绍兴文理学院学报(自然科学版). <strong>2007</strong>, Vol. 27, No. 7, p. 20-23 </div>
+              <div><a href="https://kns.cnki.net/kcms2/article/abstract?v=cP5JN5wNT8D9bpCOunmaeJj8M8mAzcfE25xoksKCYiDPGSJnGR9KFOf89YtnLwcVTo-KRst6uWnztUs4kXSUaZBzfY1NQOll7GCgLV_pIKcXQ5HbPk4JatcSFzdpFCh1ONzg0ifGGCP12BZvnm5cqKtFAnDMCmWq-fUM1kB-5so=&uniplatform=NZKPT" class="muted" target="_blank">中国知网</a></div>
+              <!--            <div><a href="#" class="muted">BibTeX</a></div>  --> 
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <!--      <div style="margin-top:12px">
+          <a href="#" class="muted">完整论文列表（Google Scholar / ORCID / 研究主页）</a>
+        </div>
+  --> 
+  </section>
+  <section id="teachingproject" class="card" aria-labelledby="teachTitle">
+    <h2 id="teachTitle">教学研究项目</h2>
+    <p class="muted" style="margin-top:6px">主持 3 项省部级教学课题和 7 项校级教学课题，参与各级各类教学课题若干。</p>
+    <div style="margin-top:12px">
+      <h3 id="teachTitle">省部级教学课题</h3>
+      <ul>
+        <li>
+          <div class="pub"><strong>“数智赋能”大学数学课程思政教学内容更新与教学方法改革研究（No. 2025JGYB026）.</strong>
+            <div class="meta-row">江苏省 2025 年高等教育教改研究课题，2025.09-2027.08；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>大学数学课程思政建设与应用（No. 23SX0313）.</strong>
+            <div class="meta-row">中国高等教育学会 2023 年度高等教育科学研究规划课题，2024.01-2025.12；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>应用型人才培养模式下的大学数学分层次教学的研究与实践（No. 2014ZDJY058）.</strong>
+            <div class="meta-row">安徽省教育厅高等教育振兴计划（重大）教学改革研究项目，2015.01-2017.12。</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-top:12px">
+      <h3 id="teachTitle">校级教学课题</h3>
+      <ul>
+        <li>
+          <div class="pub"><strong>基于课程思政的大学数学教育教学新业态探索（No. JGKT202511）.</strong>
+            <div class="meta-row">常州工学院 2025 年校级本科教学建设项目教学改革研究课题，2025.09-2027.08；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>“数学分析”课程思政教学团队（No. SZTD202406）.</strong>
+            <div class="meta-row">常州工学院 2024 年校级本科教学建设类项目，2024.09-2026.08；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>“数学分析”课程建设（混合式“金课”）（No. JK2023-9）.</strong>
+            <div class="meta-row">常州工学院 2023 年度教学建设项目，2023.09-2025.08；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>“数据科学与大数据技术”示范专业建设点（No. 30120300100-23-yb-sfzy05）.</strong>
+            <div class="meta-row">常州工学院 2023 年度“课程思政”建设项目，2023.09-2025.08；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>“高等数学”示范课建设项目（No. 30120300100-22-sfk19）.</strong>
+            <div class="meta-row">常州工学院 2022 年度“课程思政”建设项目，2022.01-2022.12；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>大学数学课程融入课程思政的探索与研究（No. 2020XJXYJ021）.</strong>
+            <div class="meta-row">淮北师范大学教学研究（重点）项目，2021.01-2022.12；</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>高等数学精品课程建设的研究与实践（No. 800391）.</strong>
+            <div class="meta-row">淮北师范大学教学研究项目，2007.01-2008.12。</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="teachingpub" class="card" aria-labelledby="pubTitle">
+    <h2 id="pubTitle">教学研究论文</h2>
+    <p class="muted" style="margin-top:6px">已公开发表教学论文 20 余篇。</p>
+    <div class="pub-list" id="pubList">
+      <ul>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 黄星, 马艳芳. <strong>数字化赋能大学数学课程思政教学改革. </strong>
+            <div class="meta-row">
+              <div>创新教育研究. <strong>2025</strong>, Vol. 13, No. 2, p. 284-290 </div>
+              <div>DOI: <a href="https://doi.org/10.12677/ces.2025.132117" class="muted" target="_blank">10.12677/ces.2025.132117</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳，<strong>陈亮</strong>. <strong>软件工程专业双语教学课程建设的研究与实践. </strong>
+            <div class="meta-row">
+              <div>教育进展. <strong>2025</strong>, Vol. 15, No. 12, p. 440 </div>
+              <div>DOI: <a href="https://doi.org/10.12677/ae.2025.15122299" class="muted" target="_blank">10.12677/ae.2025.15122299</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 黄星, 刘蒋巍, <strong>陈亮</strong>. <strong>一道 2024 考研数学题的源与流的探讨. </strong>
+            <div class="meta-row">
+              <div>高等数学研究. <strong>2025</strong>, Vol. 28, No. 06, p. 64-66+69 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 马艳芳. <strong>基于课程思政的大学数学课程教学改革. </strong>
+            <div class="meta-row">
+              <div>教育进展. <strong>2024</strong>, Vol. 14, No. 9, p. 532-539 </div>
+              <div>DOI: <a href="https://doi.org/10.12677/ae.2024.1491691" class="muted" target="_blank">10.12677/ae.2024.1491691</a></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳, <strong>陈亮</strong>, 胡智喜. <strong>新工科背景下《算法设计与分析》课程思政教学设计研究. </strong>
+            <div class="meta-row">
+              <div>教育进展. <strong>2024</strong>, Vol. 14, No. 11, p. 1-7 </div>
+              <div>DOI: <a href="https://doi.org/10.12677/ae.2024.14112012" class="muted" target="_blank">10.12677/ae.2024.14112012</a> </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 赵颖, 李应华, <strong>陈亮</strong>. <strong>中学数学课程“大班授课, 小班讨论”教学模式的探讨. </strong>
+            <div class="meta-row">
+              <div>数学教学研究. <strong>2022</strong>, Vol. 41, No. 1, p. 53-57 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 赵杰. <strong>R<sup>2</sup> 上实数完备性定理的证明. </strong>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2019</strong>, Vol. 40, No. 4, p. 83-86 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 赵杰, <strong>陈亮</strong>. <strong>柯西收敛准则证明的一个新思路. </strong>
+            <div class="meta-row">
+              <div>职大学报. <strong>2019</strong>, No. 6, p. 78-79 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳, 于春红, <strong>陈亮</strong>. <strong>以计算思维为导向的计算机专业人才培养模式. </strong>
+            <div class="meta-row">
+              <div>科技展望. <strong>2017</strong>, Vol. 27, No. 21, p. 269 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>. <strong>应用型人才培养模式下的大学数学分层次教学. </strong>
+            <div class="meta-row">
+              <div>科技展望. <strong>2016</strong>,  Vol. 26, No. 32, p. 183 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>. <strong>应用型人才培养模式下高等数学分类分层教学改革的探索. </strong>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 4, p. 75-79 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 杜翠真, 高勤. <strong>实对称矩阵对角化中正交矩阵的初等变换求法. </strong>
+            <div class="meta-row">
+              <div>大学数学. <strong>2016</strong>, Vol. 32, No. 4, p. 68-72 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 马艳芳. <strong>应用 Mathematica 软件解决两类矩阵问题. </strong>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2016</strong>, Vol. 37, No. 1, p. 83-85 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳, <strong>陈亮</strong>. <strong>基于任务驱动的离散数学实验教学研究. </strong>
+            <div class="meta-row">
+              <div>淮北师范大学学报(自然科学版). <strong>2015</strong>, Vol. 36, No. 2, p. 70-74 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳, <strong>陈亮</strong>. <strong>计算思维在离散数学中的应用. </strong>
+            <div class="meta-row">
+              <div>湖州师范学院学报. <strong>2015</strong>, Vol. 37, No. 2, p. 104-108 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 马艳芳, 张云, 陈冬君. <strong>微积分中积分一般概念的教学. </strong>
+            <div class="meta-row">
+              <div>长春教育学院学报. <strong>2011</strong>, Vol. 27, No. 5, p. 112-113 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 马艳芳, <strong>陈亮</strong>. <strong>计算机基础教学中学生自主学习能力的培养. </strong>
+            <div class="meta-row">
+              <div>淮海工学院学报. <strong>2011</strong>, Vol. 9, No. 10, p. 77-79 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 王超. <strong>基于常见问题集 FAQ 的智能答疑系统. </strong>
+            <div class="meta-row">
+              <div>福建电脑. <strong>2007</strong>, No. 7, p. 139-140 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> <strong>陈亮</strong>, 张帆. <strong>线性方程组理论在初等数学教学中的应用. </strong>
+            <div class="meta-row">
+              <div>湖州职业技术学院学报. <strong>2007</strong>, Vol. 3, No. 3, p. 82-84 </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"> 许绍元, <strong>陈亮</strong>. <strong>在《实变函数》课程教学中培养学生科研能力的体会. </strong>
+            <div class="meta-row">
+              <div>淮北煤师院学报(自然科学版). <strong>2003</strong>, Vol. 24, No. 2, p. 53-56.</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="cv" class="card" aria-labelledby="cvTitle">
+    <h2 id="cvTitle">硕士研究生</h2>
+    <h3>专业型硕士</h3>
+    <div style="margin-top:12px">
+      <ul class="muted" style="margin-top:8px">
+        <li>
+          <div class="pub"><strong>陈冠勋</strong>，人工智能专业，2025.09 -</div>
+        </li>
+        <li>
+          <div class="pub"><strong>李应华</strong>，学科教学（数学）专业，2020.09-2022.06，毕业去向：淮北理工学院
+            <div class="meta-row">毕业论文：基于 GeoGebra 的初中函数教学实践研究</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>赵&nbsp;&nbsp;&nbsp;&nbsp;颖</strong>，学科教学（数学）专业，2020.09-2022.06，毕业去向：济宁市高级职业学校
+            <div class="meta-row">毕业论文：深度教学视野下高中数学教材分析的策略研究</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>叶金鑫</strong>，学科教学（数学）专业，2018.09-2020.06，毕业去向：安徽省天长中学
+            <div class="meta-row">毕业论文：指向数据分析核心素养的教学设计研究（合作指导教师：张昆）</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>孟&nbsp;&nbsp;&nbsp;&nbsp;莹</strong>，学科教学（数学）专业，2018.09-2020.06，毕业去向：山东省汶上县第一中学
+            <div class="meta-row">毕业论文：数学教学设计中“初始问题”提出方法的研究（合作指导教师：张昆）</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>黄亚青</strong>，学科教学（数学）专业，2017.06-2019.06，毕业去向：福建省南平剑津中学
+            <div class="meta-row">毕业论文：诱发学生审美意向的数学高考解题教学研究（合作指导教师：张昆）</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <h3>学术型硕士</h3>
+    <div style="margin-top:12px">
+      <ul class="muted" style="margin-top:8px">
+        <li>
+          <div class="pub"><strong>伍珍香</strong>，计算数学专业，2019.09-2022.06，毕业去向：安徽信息工程学院
+            <div class="meta-row">毕业论文：两种改进的 Levenberg-Marquardt 方法及其应用</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>周&nbsp;&nbsp;&nbsp;&nbsp;童</strong>，计算数学专业，2019.09-2022.06，毕业去向：淮南高新区山南第四中学
+            <div class="meta-row">毕业论文：一种自适应 Levenberg-Marquardt 方法及其收敛性分析</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub"><strong>苏晨诚</strong>，计算数学专业，2014.09-2017.06，毕业去向：合肥市长江路第二小学
+            <div class="meta-row">毕业论文：求解非线性方程组的新的 Levenberg-Marquardt 算法及其理论分析</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="teaching" class="card" aria-labelledby="teachTitle">
+    <h2 id="teachTitle">教学情况</h2>
+    <p>自 2001 年留校任教以来，一直承担全校基础课程“高等数学”“线性代数”的主讲任务，还承担了专业基础课程“数学分析”系列课程主讲工作。在教学的同时，还承担了部分教学实践指导工作，如“微格教学”“教育实习”“毕业论文”靠等，教学经验非常丰富。</p>
+    <p>在教学的同时，还承担了 2013 级统计学专业、2017 级金融数学专业辅导员工作，同时还指导暑期社会实践、数学建模、数学竞赛等工作。</p>
+    <div style="margin-top:12px">
+      <h3>本科课程</h3>
+      <h4>常州工学院</h4>
+      <ul class="muted" style="margin-top:8px">
+        <li>
+          <div class="pub">数学分析Ⅲ</div>
+          <ul>
+            <li>2025-2026 学年第 1 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80 人，80 学时。</li>
+            <li>2024-2025 学年第 1 学期，2023 级，数学与应用数学（金融数学方向）专业，23 应数一、23 应数二，70 人，64 学时；</li>
+            <li>2023-2024 学年第 1 学期，2022 级，数据科学与大数据技术专业，22 大数据，40 人，64 学时（与 22 统计合班）；</li>
+            <li>2023-2024 学年第 1 学期，2022 级，应用统计学专业，22 统计一、22 统计二，72 人，64 学时（与 22 大数据合班）；</li>
+            <li>2022-2023 学年第 1 学期，2021 级，数学与应用数学（金融数学方向）专业，21 数学一、21 数学一二，69 人，64 学时；</li>
+            <li>2022-2023 学年第 1 学期，2021 级，数据科学与大数据技术专业，21 大数据，43 人，64 学时（与 21 统计合班）；</li>
+            <li>2022-2023 学年第 1 学期，2021 级，应用统计学专业，21 统计一、21 统计二，70 人，64 学时（与 21 大数据合班）；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数学分析Ⅱ</div>
+          <ul>
+            <li>2024-2025 学年第 2 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80人，96 学时。</li>
+            <li>2023-2024 学年第 2 学期，2023 级，数学与应用数学（金融数学方向）专业，23 应数一、23 应数二，72 人，96 学时；</li>
+            <li>2022-2023 学年第 2 学期，2022 级，数据科学与大数据技术专业，22 大数据，40 人，96 学时（与 22 统计合班）；</li>
+            <li>2022-2023 学年第 2 学期，2022 级，应用统计学专业，22 统计一、22 统计二，72 人，96 学时（与 22 大数据合班）；</li>
+            <li>2021-2022 学年第 2 学期，2021 级，数据科学与大数据技术专业，21 大数据，43 人；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数学分析Ⅰ</div>
+          <ul>
+            <li>2024-2025 学年第 1 学期，2024 级，数据科学与大数据技术专业，24 大数据一、24 大数据二，80 人，64 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">最优化理论与算法</div>
+          <ul>
+            <li>2025-2026 学年第 1 学期，2022 级，数据科学与大数据技术专业，22 大数据，43 人，32 学时。</li>
+            <li>2024-2025 学年第 1 学期，2021 级，数据科学与大数据技术专业，21 大数据，40 人，32 学时。</li>
+            <li>2023-2024 学年第 1 学期，2020 级，数据科学与大数据技术专业，20 大数据，41 人，32 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学 A（下）</div>
+          <ul>
+            <li>2025-2026 学年第 2 学期，2025 级，**专业，25成型二;25成型一;25机务二;25机务一，* 人，78 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">概率论与数理统计</div>
+          <ul>
+            <li>2021-2022 学年第 1 学期，2020 级，电气工程及其自动化专业，20 电一、二、三班，134 人，48 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">概率论</div>
+          <ul>
+            <li>2021-2022 学年第 1 学期，2020 级，新能源科学与工程专业，20 能源一、二、三、四班，159 人，32 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">线性代数</div>
+          <ul>
+            <li>2025-2026 学年第 2 学期，2024 级，**专业，24机务二;24机务一，* 人，32 学时。</li>
+            <li>2024-2025 学年第 2 学期，2024 级，工商管理专业，24 管一、二；资源循环科学与工程专业，24 资环一、二，154 人，32 学时。</li>
+            <li>2021-2022 学年第 2 学期，2021 级，电子信息工程专业，21 信一、二、三、四班，159 人，32 学时。</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">人工智能数学基础</div>
+          <ul>
+            <li>2025-2026 学年第 1 学期，2024 级，电气工程及其自动化专业（科创学院），14 人，16 学时（第 9 章 大规模矩阵分解；第 10 章 迭代优化方法）</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学 A（上）/ B（上）/ C （重修）</div>
+          <ul>
+            <li>2021-2022 学年第 1 学期，各级各专业，46 + 15 + 1 人，48 学时</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">毕业论文</div>
+          <ul>
+            <li><div>2025-2026 学年第 2 学期，2022 级（2026 届），数据科学与大数据技术专业，6 人<div class="meta-row">张三，李四，王五</div></div></li>
+            <li>2024-2025 学年第 2 学期，2021 级（2025 届），数据科学与大数据技术专业，7 人</li>
+            <li>2023-2024 学年第 2 学期，2020 级（2024 届），数据科学与大数据技术专业，5 人</li>
+            <li>2022-2023 学年第 2 学期，2019 级（2023 届），数学与应用数学（金融数学方向）专业，7 人</li>
+          </ul>
+        </li>
+      </ul>
+      <h4>淮北师范大学</h4>
+      <ul class="muted" style="margin-top:8px">
+        <li>
+          <div class="pub">数学分析 3</div>
+          <ul>
+            <li>2018-2019 学年第 1 学期，2017 级，统计学专业，91 人，108 学时；</li>
+            <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，99 人，108 学时；</li>
+            <li>2017-2018 学年第 1 学期，2016 级，统计学专业，101 人，108 学时；</li>
+            <li>2015-2016 学年第 1 学期，2014 级，统计学专业，2 班，72 人，108 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数学分析 2</div>
+          <ul>
+            <li>2017-2018 学年第 2 学期，2017 级，金融数学专业，99 人，108 学时；</li>
+            <li>2016-2017 学年第 2 学期，2016 级，统计学专业，101 人，108 学时；</li>
+            <li>2014-2015 学年第 2 学期，2014 级，统计学专业，2 班，72 人，108 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数学分析 1</div>
+          <ul>
+            <li>2017-2018 学年第 1 学期，2017 级，金融数学专业，93 人，96 学时；</li>
+            <li>2016-2017 学年第 1 学期，2016 级，统计学专业，99 人，96 学时；</li>
+            <li>2014-2015 学年第 1 学期，2014 级，统计学专业，2 班，75 人，96 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数值计算方法</div>
+          <ul>
+            <li>2008-2009 学年第 1 学期，2006 级，信息与计算科学专业，91 人，54 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">运筹与优化 / 运筹学</div>
+          <ul>
+            <li>2018-2019 学年第 2 学期，2017 级，统计学专业，91 人，48 学时；</li>
+            <!--
+              </ul>
+         </li>
+         <li><div class="pub">运筹学</div>
+             <ul>
+-->
+            <li>2013-2014 学年第 1 学期，2012 级，信息管理与系统专业，56 人，54 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学 A2 / 高等数学二 / 高等数学 (2)</div>
+          <ul>
+            <li>2020-2021 学年第 2 学期，2020 级，物理学（师范）专业，92 人，102 学时；</li>
+            <li>2016-2017 学年第 2 学期，2016 级，物理学（师范）专业，102 学时；</li>
+            <!--
+                 </ul></li>
+            <li><div class="pub">高等数学二</div>
+                 <ul>
+  -->
+            <li>2015-2016 学年第 2 学期，2015 级，信息安全专业，102 学时；</li>
+            <li>2015-2016 学年第 2 学期，2015 级，提高班（计算机学院），102 学时；</li>
+            <li>2013-2014 学年第 2 学期，2013 级，数字媒体技术专业，74 人，102 学时；</li>
+            <li>2011-2012 学年第 2 学期，2011 级，物理学专业，2 班，85 人，102 学时；</li>
+            <li>2009-2010 学年第 2 学期，2009 级，计算机科学与技术（师范）专业，106 人，102 学时；</li>
+            <li>2009-2010 学年第 2 学期，2009 级，物理学专业，1 班，73 人，102 学时；</li>
+            <li>2008-2009 学年第 2 学期，2008 级，物理学类专业，2 班，95 人，102 学时；</li>
+            <li>2008-2009 学年第 2 学期，2008 级，电气信息类专业，2 班，85 人，102 学时；</li>
+            <!--
+                 </ul></li>
+            <li><div class="pub">高等数学 (2)</div>
+                 <ul>
+  -->
+            <li>2018-2019 学年第 2 学期，2018 级，人力资源管理专业（信息学院），1 班，66 人，58 学时；</li>
+            <li>2006-2007 学年第 2 学期，2006 级，应用化学专业，75 人，58 学时；</li>
+            <li>2006-2007 学年第 2 学期，2006 级，电子信息工程专业，85 人，112 学时；</li>
+            <li>2004-2005 学年第 2 学期，2004 级，网络工程专业，65 人，90 学时；</li>
+            <li>2004-2005 学年第 2 学期，2004 级，化学专业，126 人，56 学时；</li>
+            <li>2003-2004 学年第 2 学期，2003 级，化学专业，133 人，72 学时；</li>
+            <li>2002-2003 学年第 2 学期，2002 级，化学专业，115 人，54 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学 A1 / 高等数学一 / 高等数学 (1)</div>
+          <ul>
+            <li>2020-2021 学年第 1 学期，2020 级，材料科学与工程专业，69 人，78 学时；</li>
+            <li>2020-2021 学年第 1 学期，2020 级，物理学（师范）专业，79 人，78 学时；</li>
+            <li>2016-2017 学年第 1 学期，2016 级，物理学（师范）专业，78 学时；</li>
+            <!--
+                 </ul></li>
+            <li><div class="pub">高等数学一</div>
+                 <ul>
+  -->
+            <li>2015-2016 学年第 1 学期，2015 级，提高班（计算机学院），78 学时；</li>
+            <li>2015-2016 学年第 1 学期，2015 级，信息安全专业，78 学时；</li>
+            <li>2013-2014 学年第 1 学期，2013 级，数字媒体技术专业，74 人，78 学时；</li>
+            <li>2013-2014 学年第 1 学期，2013 级，酒店管理专业，59 人，78 学时；</li>
+            <li>2008-2009 学年第 1 学期，2008 级，电气信息类专业，2 班，85 人，78 学时；</li>
+            <li>2008-2009 学年第 1 学期，2008 级，物理学类专业，2 班，95 人，78 学时；</li>
+            <!--
+                 </ul></li>
+            <li><div class="pub">高等数学 (1)</div>
+                 <ul>
+  -->
+            <li>2007-2008 学年第 1 学期，2007 级，物理学类专业，2 班，81 人，78 学时；</li>
+            <li>2007-2008 学年第 1 学期，2007 级，电气信息类专业，1 班，95 人，78 学时；</li>
+            <li>2005-2006 学年第 1 学期，2005 级，网络工程专业，81 人，90 学时；</li>
+            <li>2004-2005 学年第 1 学期，2004 级，网络工程专业，65 人，90 学时；</li>
+            <li>2004-2005 学年第 1 学期，2004 级，化学专业，126 人，70 学时；</li>
+            <li>2003-2004 学年第 1 学期，2003 级，化学专业，133 人，72 学时；</li>
+            <li>2002-2003 学年第 1 学期，2002 级，化学专业，115 人，80 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学</div>
+          <ul>
+            <li>2008-2009 学年第 1 学期，2008 级，公共事业管理（师范）专业，90 人，96 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">高等数学 C2</div>
+          <ul>
+            <li>2017-2018 学年第 2 学期，2017 级，园艺专业，69 人，48 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">经济数学 (2)</div>
+          <ul>
+            <li>2001-2002 学年第 2 学期，2001 级，思想政治教育专业，36 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">线性代数</div>
+          <ul>
+            <li>2014-2015 学年第 2 学期，2014 级，应用化学专业（信息学院），49 人，48 学时；</li>
+            <li>2014-2015 学年第 1 学期，2013 级，生物工程专业，1 班，86 人，54 学时；</li>
+            <li>2014-2015 学年第 1 学期，2013 级，生物工程专业，2 班，87 人，54 学时；</li>
+            <li>2011-2012 学年第 2 学期，2011 级，会计学专业，95 人，48 学时；</li>
+            <li>2011-2012 学年第 2 学期，2011 级，经济学专业，89 人，48 学时；</li>
+            <li>2009-2010 学年第 1 学期，2009 级，计算机科学与技术专业，79 人，54 学时；</li>
+            <li>2009-2010 学年第 1 学期，2009 级，电气信息类专业，2 班，84 人，54 学时；</li>
+            <li>2007-2008 学年第 1 学期，2007 级，电气信息类专业，1 班，100 人，54 学时；</li>
+            <li>2007-2008 学年第 1 学期，2007 级，电子商务专业，74 人，54 学时；</li>
+            <li>2006-2007 学年第 2 学期，2006 级，经济学专业，115 人，48 学时；</li>
+            <li>2005-2006 学年第 1 学期，2005 级，电子商务专业，85 人，64 学时；</li>
+            <li>2005-2006 学年第 1 学期，2005 级，电子科学与技术专业，122 人，64 学时；</li>
+            <li>2004-2005 学年第 1 学期，2004 级，计算机技术（师范类）专业，122 人，64 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">课件制作</div>
+          <ul>
+            <li>2003-2004 学年第 2 学期，2003 级，数学与应用数学（专升本）专业，34 + 18 （上机）学时；</li>
+            <li>2002-2003 学年第 2 学期，2002 级，数学与应用数学（专升本）专业，34 + 18 （上机）学时；</li>
+            <li>2002-2003 学年第 2 学期，2000 级，数学与应用数学专业，34 + 18 （上机）学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">实变函数</div>
+          <ul>
+            <li>2002-2003 学年第 1 学期，2000 级，数学与应用数学专业，1 班，54 学时（主讲教师：李雷）</li>
+            <li>2001-2002 学年第 1 学期，1999 级，数学与应用数学专业，180 人，54 学时（主讲教师：许绍元）</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">毕业论文</div>
+          <ul>
+            <li>2020-2021 学年第 2 学期，2017 级（2021 届），数学与应用数学专业，7 人；统计学专业， 1 人（成果代替）；</li>
+            <li>2018-2019 学年第 2 学期，2015 级（2019 届），数学与应用数学专业，8 人；</li>
+            <li>2017-2018 学年第 2 学期，2014 级（2018 届），统计学专业，11 人；金融数学专业，3 人（成果代替）；</li>
+            <li>2016-2017 学年第 2 学期，2013 级（2017 届），数学与应用数学专业，9 人；</li>
+            <li>2015-2016 学年第 2 学期，2012 级（2016 届），统计学专业，12 人；</li>
+            <li>2014-2015 学年第 2 学期，2011 级（2015 届），数学与应用数学专业，12 人（信息学院）；</li>
+            <li>2013-2014 学年第 2 学期，2010 级（2014 届），数学与应用数学专业，9 人（信息学院）；</li>
+            <li>2009-2010 学年第 2 学期，2006 级（2010 届），数学与应用数学专业，11 人（信息学院 2 人）；</li>
+            <li>2008-2009 学年第 2 学期，2005 级（2009 届），数学与应用数学专业，10 人（信息学院 7 人）；</li>
+            <li>2004-2005 学年第 2 学期，2001 级（2005 届），数学与应用数学专业，4 人；</li>
+            <li>2003-2004 学年第 2 学期，2000 级（2004 届），数学与应用数学专业，4 人；</li>
+            <li>2002-2003 学年第 2 学期，1999 级（2003 届），数学与应用数学专业，4 人；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">教育实习（部分）</div>
+          <ul>
+            <li>2020-2021 学年第 1 学期，2018 级，数学与应用数学专业，2 班，10 人（教育见习）</li>
+            <li>2014-2015 学年第 1 学期，2011 级，数学与应用数学专业，10 人，实习地点：淮北市实验高级中学</li>
+            <li>2005-2006 学年第 1 学期，2002 级，数学与应用数学专业，14 人，实习地点：安徽省萧县中学 8 人、萧县师范学校 6 人；</li>
+            <li>2004-2005 学年第 1 学期，2003 级，数学与应用数学（专升本）专业，12 人，分散实习；</li>
+            <li>2004-2005 学年第 1 学期，2001 级，数学与应用数学专业，8 人，实习地点：安徽省砀山中学；</li>
+            <li>2003-2004 学年第 1 学期，2002 级，数学与应用数学（专升本）专业，12 人，分散实习；</li>
+            <li>2003-2004 学年第 1 学期，2000 级，数学与应用数学专业，8 人，实习地点：淮北市岱河矿高级中学；</li>
+            <li>2002-2003 学年第 1 学期，1999 级，数学与应用数学专业，8 人，实习地点：淮北市岱河矿高级中学；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">微格教学</div>
+          <ul>
+            <li>2006-2007 学年第 2 学期，2004 级，数学与应用数学专业，20 人；</li>
+            <li>2004-2005 学年第 2 学期，2002 级，数学与应用数学专业，20 人；</li>
+            <li>2003-2004 学年第 2 学期，2001 级，数学与应用数学专业，20 人；</li>
+            <li>2002-2003 学年第 2 学期，2000 级，数学与应用数学专业，20 人；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">形势与政策六</div>
+          <ul>
+            <li>2015-2016 学年第 2 学期，2013 级，统计学专业，99 人，16 学时；</li>
+            <li>2015-2016 学年第 1 学期，2013 级，统计学专业，99 人，16 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">社会责任教育</div>
+          <ul>
+            <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，10 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">社会责任教育实践</div>
+          <ul>
+            <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，27 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">创新创业教育实践</div>
+          <ul>
+            <li>2018-2019 学年第 1 学期，2017 级，金融数学专业，72 学时；</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>研究生课程 —— 淮北师范大学</h3>
+      <ul>
+        <li>
+          <div class="pub">最优化理论与方法</div>
+          <ul>
+            <li>2020-2021 学年第 1 学期，2019 级，计算数学专业，36 学时；</li>
+            <li>2014-2015 学年第 2 学期，2014 级，计算数学专业，36 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">数值最优化</div>
+          <ul>
+            <li>2014-2015 学年第 2 学期，2014 级，计算数学专业，36 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">计算方法 /&nbsp;数值分析</div>
+          <ul>
+            <li>2018-2019 学年第 1 学期，2017 级，计算数学专业，36 学时；</li>
+            <li>2017-2018 学年第 2 学期，2017 级，计算数学专业，36 学时；</li>
+          </ul>
+        </li>
+        <li>
+          <div class="pub">科学计算</div>
+          <ul>
+            <li>2020-2021 学年第 2 学期，2020 级，计算数学专业，36 学时；</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>成人教育&nbsp; ——&nbsp; 淮北师范大学</h3>
+    </div>
+  </section>
+
+  <section id="StuWork" class="card" aria-labelledby="StuWorkTitle">
+    <h2 id="StuWorkTitle">学生工作</h2>
+    <p class="muted" style="margin-top:8px">工作期间，全职兼任专业辅导员。还担任全国大学生数学建模、五一数学建模、亚太数学建模、美国大学生数学建模、数学竞赛、全国大学生市场调查等赛事的指导教师，指导暑期社会实践活动等，指导大学生创新创业训练项目。</p>
+	<h3>辅导员工作</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+		<ul>
+		  <li><div class="pub">2015.09-2017.06，2013 级，统计学专业，辅导员；</div></li>
+		  <li><div class="pub">2017.09-2021.06，2017 级，金融数学专业，辅导员。</div></li>
+		</ul>
+    </div>
+	<h3>大学生创新创业训练计划项目（部分）</h3>
+	  <div style="display:flex;flex-direction:column;gap:8px">
+		  <ul>			  
+			<li>
+				<div class="pub">基于 yolov8 智能识别系统的低功耗灵巧手人形上料机器人（项目编号：202511055018）.
+					<div class="meta-row">国家级大学生创新训练计划项目，2025 年，创新训练项目，郑绍恺、彭柯尹、李硕、田旺旺、卞乐凌</div>				
+				</div>
+			</li>			  
+			<li>
+				<div class="pub">基于优化算法的手语精确识别的研究（项目编号：202511055043T）.
+					<div class="meta-row">江苏省省级大学生创新创业训练计划项目，2025 年，创业训练项目，靳远、许广耘、陈嘉琪、朱琰、黄耀宗（与吴岗共同指导）</div>				
+				</div>
+			</li>
+			<li>
+				<div class="pub">基于优化算法的手语精确识别的研究（项目编号：202411055052Y）.
+					<div class="meta-row">江苏省省级大学生创新创业训练计划项目，2024 年，创新训练项目，许广耘、杨泽靖、杨文轩、蔡译漫、高艺文（与刘永财共同指导）</div>				
+				</div>
+			</li>
+			<li>
+				<div class="pub">中国传统文化在儿童文化产业中渗透的研究（项目编号：201610373051）.
+					<div class="meta-row">安徽省省级大学生创新创业训练计划项目，2016 年，创新训练项目，葛少华、吴泽琴、朱静、林米雪、王珂</div>				
+				</div>
+			</li>
+		  </ul>
+	  </div>
+	<h3>大学生暑期社会实践（部分）</h3>
+	  <div style="display:flex;flex-direction:column;gap:8px">
+		  <ul>			  
+			<li>
+				<div class="pub">数智赋能红色基因，实践筑梦青春征程.
+					<div class="meta-row">2025 年暑期社会实践，常州工学院校级团队，负责人：翟涵悦</div>				
+				</div>
+			</li>
+			<li>
+				<div class="pub">赴边疆 · 宣国防 · 内蒙古包头弘扬爱国主义暑期社会实践.
+					<div class="meta-row">2018 年大学生志愿者暑期文化科技卫生“三下乡”社会实践，安徽省省级重点团队，负责人：王晓蕊</div>				
+				</div>
+			</li>			  
+			<li>
+				<div class="pub">重走“红一”长征路，手绘“老区”新风貌 —— 安徽红色老区振兴发展实践调研.
+					<div class="meta-row">2018 年大学生志愿者暑期文化科技卫生“三下乡”社会实践，安徽省省级重点团队，负责人：王新宇</div>				
+				</div>
+			</li>
+		  </ul>
+	  </div>
+	  
+    <h3>指导竞赛和实践工作</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+		<ul>
+			<li>
+				<div class="pub">2025, Mathematical Contest In Modeling, <strong>Successful Participant</strong>.
+					<div class="meta-row"><strong>成员：</strong>Guangyun XU, Jiaqi CHEN, Jialing NI</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2023, Asia and Pacific Mathematical Contest In Modeling, <strong>Third Prize</strong>. 
+					<div class="meta-row"><strong>成员：</strong>Meng ZUO, Xixi ZHOU, Miao ZHAO</div>
+				</div>					
+			</li>
+			<li>
+				<div class="pub">2023 年“领航杯”江苏省青少年网络信息安全应用能力竞赛，本科组，<strong>大数据分析赛项二等奖</strong>. 
+					<div class="meta-row"><strong>成员：</strong>袁登晨、孙晨曦、徐毓苑</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2022, Asia and Pacific Mathematical Contest In Modeling, <strong>Third Prize</strong>. 
+					<div class="meta-row"><strong>成员：</strong>Jingkai SUN, Chuangfan YUAN, Jack ZHU</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2022 年高教社杯全国大学生数学建模竞赛本科组，江苏赛区，<strong>二等奖</strong>.
+					<div class="meta-row"><strong>成员：</strong>孙景凯、袁闯范、朱桓乐</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2022 年第十九届五一数学建模竞赛，<strong>一等奖</strong>.
+					<div class="meta-row"><strong>成员：</strong>王嘉成、赵若凡、朱晨霄，队号：T3500702090</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2022 年第十九届五一数学建模竞赛，<strong>二等奖</strong>.
+					<div class="meta-row"><strong>成员：</strong>龚金婷、江芷萱、刘妍，队号：T4070667803</div>
+				</div>
+			</li>			
+			<li>
+				<div class="pub">2016 年全国大学生数学建模竞赛，安徽赛区，<strong>本科组二等奖</strong>.
+					<div class="meta-row"><strong>成员：</strong>胡昕钰、胡婧、尹文静</div>
+				</div>
+			</li>
+			<li>
+				<div class="pub">2016 年全国大学生数学建模竞赛，安徽赛区，<strong>本科组三等奖</strong>.
+					<div class="meta-row"><strong>成员：</strong>高敏、郭冬冬、王文静</div>
+				</div>
+			</li>
+		</ul>
+    </div>
+  </section>
+	
+  <section id="Honor" class="card" aria-labelledby="HonorTitle">
+    <h2 id="HonorTitle">获奖情况</h2>
+	  <p class="muted" style="margin-top:8px">教学成果奖。</p>
+	  <div style="display:flex;flex-direction:column;gap:8px">
+		  <ul class="muted" style="margin-top:8px">
+			  <li>
+				  <div class="pub">2024 年，<strong>常州工学院校级教学成果奖</strong>，一等奖，排名：8/15
+					  <div class="meta-row"><strong>成果名称：</strong>“数智赋能、校企提质、四创强效”应用型理学本科人才培养模式实践与探索</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2024 年，<strong>常州工学院校级教学成果奖</strong>，二等奖，排名：1/6
+					  <div class="meta-row"><strong>成果名称：</strong>一核心三体系三机制四评价的“1334”型大学数学课程思政教学改革与实践</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2024 年，<strong>常州工学院 2024 年工会活动积极分子</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2023 年，<strong>常州工学院“课程思政”优秀教师</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2023 年，“高等数学”，<strong>常州工学院“课程思政”示范课程</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2022 年，<strong>常州工学院 2022 年度招生工作先进个人</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2022 年，“线性代数”，<strong>2022 年度常州工学院“优课程计划”最佳教案</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2019 年，<strong>淮北师范大学校级教学成果奖</strong>，一等奖，排名：1
+					  <div class="meta-row"><strong>成果名称：</strong>应用型人才培养模式下的大学数学分层次教学的研究与实践</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2016 年，<strong>淮北师范大学 2012-2016 年科学研究先进个人</strong></div>
+			  </li>			  
+			  <li>
+				  <div class="pub">2016 年，<strong>安徽省第八届自然科学优秀学术论文</strong>，三等奖，独著
+					  <div class="meta-row"><strong>论文名称：</strong>Newton-Kantorovich type theorem by using recurrence relations for a fifth-order method in Banach spaces</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2016 年，<strong>淮北师范大学 2016 年大学生暑期文化科技卫生“三下乡”社会实践活动</strong>，优秀指导教师</div>
+			  </li>
+			  <li>
+				  <div class="pub">2016 年，<strong>淮北师范大学 2016 年度本科毕业论文（设计）</strong>，优秀指导教师</div>
+			  </li>
+			  <li>
+				  <div class="pub">2014 年，<strong>淮北师范大学 2014 年教育实习</strong>，优秀指导教师</div>
+			  </li>
+			  <li>
+				  <div class="pub">2013 年，<strong>安徽省第七届自然科学优秀学术论文</strong>，三等奖，排名：1/2
+					  <div class="meta-row"><strong>论文名称：</strong>A new modified King-Werner method for solving nonlinear equations</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2010 年，<strong>淮北师范大学 2010 年度本科毕业论文（设计）</strong>，优秀指导教师</div>
+			  </li>
+			  <li>
+				  <div class="pub">2008 年，<strong>淮北煤炭师范学院教学成果奖</strong>，二等奖，排名：2
+					  <div class="meta-row"><strong>成果名称：</strong>同调与同伦原理（教材）</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2008 年，淮北煤炭师范学院本科教学工作水平评估<strong>评建创优先进个人</strong>，三等奖</div>
+			  </li>
+			  
+			  <li>
+				  <div class="pub">2008 年，淮北煤炭师范学院 2008 年元旦教职工文艺晚会，<strong>三等奖</strong></div>
+			  </li>
+			  <li>
+				  <div class="pub">2008 年，<strong>淮北煤炭师范学院教学成果奖</strong>，优秀奖，排名：5/8
+					  <div class="meta-row"><strong>成果名称：</strong>《高等数学》精品课程建设</div>
+				  </div>
+			  </li>
+			  <li>
+				  <div class="pub">2005 年，<strong>淮北煤炭师范学院教学成果奖</strong>，优秀奖，排名：7/7
+					  <div class="meta-row"><strong>成果名称：</strong>《高等代数》精品课程建设</div>
+				  </div>
+			  </li>
+		  </ul>
+	  </div>
+  </section>
+
+  <section id="contact" class="card" aria-labelledby="contactTitle">
+    <h2 id="contactTitle">联系我</h2>
+    <p class="muted" style="margin-top:8px">欢迎通过邮件联系（请在标题中写明来意）。</p>
+    
+<!--
+         <div style="margin-top:12px" class="contact-grid">
+          <form onsubmit="event.preventDefault(); sendMail()" style="display:grid;gap:8px">
+            <input id="name" type="text" placeholder="你的姓名" required />
+            <input id="email" type="email" placeholder="你的邮箱" required />
+            <textarea id="message" rows="4" placeholder="写点什么..." required></textarea>
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="submit">发送邮件</button>
+              <a class="btn" href="mailto:clmyf2@163.com">发邮件</a>
+            </div>
+          </form> 
+          <div>
+-->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div><strong>Email</strong>
+        <div class="muted" style="margin-top:6px"><a href="mailto:clmyf2@163.com">clmyf2@163.com</a> · <a href="mailto:chenliang1977@gmail.com">chenliang1977@gmail.com</a></div>
       </div>
-    </section>
+      <div><strong>办公室</strong>
+        <div class="muted" style="margin-top:6px">玉衡楼 B519 · 常州工学院</div>
+      </div>
+      <div style="margin-top:6px"> 
+        <!--              <strong>学术链接</strong>
+                <div class="muted" style="margin-top:6px">
+                  <a href="#" id="scholarLink">Google Scholar</a> · <a href="#" id="orcidLink2">ORCID</a> · <a href="#" id="githubLink">GitHub</a>
+                </div> --> 
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      © <span id="year"></span> 陈亮 · 常州工学院 · <a href="https://clmyf.github.io" target="_blank">clmyf.github.io</a> · 更新日期：2025 年 12 月 24 日
-    </footer>
-  </main>
+  <footer> © <span id="year"></span> 陈亮 · 常州工学院 · <a href="https://clmyf.github.io" target="_blank">clmyf.github.io</a> · 更新日期：2025 年 12 月 31 日 </footer>
+</main>
+<script>
+      (function(){
+        // 自动年份
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-  <script>
-    (function(){
-      // 自动年份
-      document.getElementById('year').textContent = new Date().getFullYear();
+        // 响应式侧边栏打开/关闭
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('openSidebar');
 
-      // 响应式侧边栏打开/关闭
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      const openBtn = document.getElementById('openSidebar');
+        function openSidebar(){
+          sidebar.classList.add('open');
+          overlay.classList.add('show');
+          overlay.setAttribute('aria-hidden','false');
+        }
+        function closeSidebar(){
+          sidebar.classList.remove('open');
+          overlay.classList.remove('show');
+          overlay.setAttribute('aria-hidden','true');
+        }
+        openBtn.addEventListener('click', openSidebar);
+        overlay.addEventListener('click', closeSidebar);
 
-      function openSidebar(){
-        sidebar.classList.add('open');
-        overlay.classList.add('show');
-        overlay.setAttribute('aria-hidden','false');
-      }
-      function closeSidebar(){
-        sidebar.classList.remove('open');
-        overlay.classList.remove('show');
-        overlay.setAttribute('aria-hidden','true');
-      }
-      openBtn.addEventListener('click', openSidebar);
-      overlay.addEventListener('click', closeSidebar);
+        // 平滑滚动并在小屏幕收起侧边栏
+        document.querySelectorAll('#mainNav a').forEach(a => {
+          a.addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelectorAll('#mainNav a').forEach(x=>x.classList.remove('active'));
+            this.classList.add('active');
+            const target = document.getElementById(this.dataset.target);
+            if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+            if(window.innerWidth <= 980) closeSidebar();
+          });
+        });
 
-      // 平滑滚动并在小屏幕收起侧边栏
-      document.querySelectorAll('#mainNav a').forEach(a => {
-        a.addEventListener('click', function(e){
+        // 高亮当前章节（IntersectionObserver）
+        const navLinks = Array.from(document.querySelectorAll('#mainNav a'));
+        const sections = navLinks.map(l => document.getElementById(l.dataset.target)).filter(Boolean);
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              const id = entry.target.id;
+              navLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
+            }
+          });
+        }, {root: null, rootMargin: '0px 0px -40% 0px', threshold: 0});
+        sections.forEach(s => observer.observe(s));
+
+        // 简易 mailto 表单
+        window.sendMail = function(){
+          const name = encodeURIComponent(document.getElementById('name').value.trim());
+          const email = encodeURIComponent(document.getElementById('email').value.trim());
+          const message = encodeURIComponent(document.getElementById('message').value.trim());
+          const subject = encodeURIComponent('网站联系 — ' + (name || '访客'));
+          const body = encodeURIComponent('姓名: ' + name + '\\n邮箱: ' + email + '\\n\\n' + message);
+          location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
+        }
+
+        // 占位下载行为（替换为实际链接）
+        document.getElementById('downloadCv').addEventListener('click', function(e){
           e.preventDefault();
-          document.querySelectorAll('#mainNav a').forEach(x=>x.classList.remove('active'));
-          this.classList.add('active');
-          const target = document.getElementById(this.dataset.target);
-          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-          if(window.innerWidth <= 980) closeSidebar();
+          window.open('#', '_blank');
         });
-      });
-
-      // 高亮当前章节（IntersectionObserver）
-      const navLinks = Array.from(document.querySelectorAll('#mainNav a'));
-      const sections = navLinks.map(l => document.getElementById(l.dataset.target)).filter(Boolean);
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            const id = entry.target.id;
-            navLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
-          }
+        document.getElementById('cvDownloadBtn').addEventListener('click', function(e){
+          e.preventDefault();
+          window.open('#', '_blank');
         });
-      }, {root: null, rootMargin: '0px 0px -40% 0px', threshold: 0});
-      sections.forEach(s => observer.observe(s));
 
-      // 简易 mailto 表单
-      window.sendMail = function(){
-        const name = encodeURIComponent(document.getElementById('name').value.trim());
-        const email = encodeURIComponent(document.getElementById('email').value.trim());
-        const message = encodeURIComponent(document.getElementById('message').value.trim());
-        const subject = encodeURIComponent('网站联系 — ' + (name || '访客'));
-        const body = encodeURIComponent('姓名: ' + name + '\\n邮箱: ' + email + '\\n\\n' + message);
-        location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
-      }
-
-      // 占位下载行为（替换为实际链接）
-      document.getElementById('downloadCv').addEventListener('click', function(e){
-        e.preventDefault();
-        window.open('#', '_blank');
-      });
-      document.getElementById('cvDownloadBtn').addEventListener('click', function(e){
-        e.preventDefault();
-        window.open('#', '_blank');
-      });
-
-      // 可按需：用 JS 动态加载更多论文或从 JSON/API 拉取数据
-    })();
-  </script>
+        // 可按需：用 JS 动态加载更多论文或从 JSON/API 拉取数据
+      })();
+    </script>
 </body>
 </html>
